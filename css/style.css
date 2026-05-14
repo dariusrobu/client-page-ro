@@ -1,6 +1,7 @@
 :root {
     --glass: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
     --glass-border: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    --text-white: rgba(255, 255, 255, 0.9);
     --white-glow: rgba(255, 255, 255, 0.05);
     --violet-deep: #120d2b; 
     --blue-deep: #0a1435;
@@ -8,10 +9,10 @@
 }
 
 body {
-    background: radial-gradient(circle at 0% 0%, var(--violet-deep) 0%, #000 70%),
-                radial-gradient(circle at 100% 100%, var(--blue-deep) 0%, #000 70%),
+    background: radial-gradient(circle at 0% 0%, var(--violet-deep) 0%, #000 80%),
+                radial-gradient(circle at 100% 100%, var(--blue-deep) 0%, #000 80%),
                 #000;
-    color: #F5F5F7;
+    color: #FFFFFF;
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -19,8 +20,10 @@ body {
     flex-direction: column;
     background-attachment: fixed;
     font-family: var(--main-font);
+    font-weight: 500; /* Increased weight for legibility */
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Stronger shadow */
 }
 
 main {
@@ -68,7 +71,7 @@ main {
     border-radius: 50%;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.4;
+    opacity: 0.25; /* Reduced brightness */
     filter: blur(140px);
     mix-blend-mode: screen;
 }
@@ -241,7 +244,10 @@ input[type="checkbox"]:checked::after {
         filter: blur(0);
         transform: scale(1);
     }
+}/* Force text clarity after animations */
+.reveal, h1, p, div, span {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
-
-
 

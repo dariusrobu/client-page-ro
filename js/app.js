@@ -1,39 +1,58 @@
 /**
- * DevD Romania | Logic & Animations
+ * DevD Romania | Advanced Interactive Logic
  * Senior Full-Stack Architect Implementation
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize GSAP ScrollTrigger
+    // 1. Initialize Lenis (Smooth Scroll)
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        infinite: false,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // 2. Initialize GSAP Plugins
     gsap.registerPlugin(ScrollTrigger);
 
-    // 1. Liquid Background Animation (Blobs)
-    const animateBlobs = () => {
-        gsap.to("#blob1", { x: '40vw', y: '20vh', duration: 25, repeat: -1, yoyo: true, ease: "sine.inOut" });
-        gsap.to("#blob2", { x: '-30vw', y: '30vh', duration: 30, repeat: -1, yoyo: true, ease: "sine.inOut" });
-        gsap.to("#blob3", { x: '20vw', y: '-40vh', duration: 22, repeat: -1, yoyo: true, ease: "sine.inOut" });
-    };
+    // 3. Magnetic Buttons Logic
+    const initMagneticButtons = () => {
+        const buttons = document.querySelectorAll('.btn-glass');
+        buttons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                gsap.to(btn, {
+                    x: x * 0.35,
+                    y: y * 0.35,
+                    duration: 0.6,
+                    ease: "power2.out"
+                });
+            });
 
-    // 2. Global Reveal Animations
-    const initReveals = () => {
-        const isMobile = window.innerWidth < 768;
-        gsap.utils.toArray(".reveal").forEach(el => {
-            gsap.from(el, {
-                scrollTrigger: {
-                    trigger: el,
-                    start: isMobile ? "top 92%" : "top 95%",
-                    toggleActions: "play none none none"
-                },
-                duration: isMobile ? 1.2 : 1.6,
-                y: isMobile ? 40 : 60,
-                opacity: 0,
-                ease: "power3.out",
-                clearProps: "all" // Ensure styles are cleared after animation
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, {
+                    x: 0,
+                    y: 0,
+                    duration: 1,
+                    ease: "elastic.out(1, 0.3)"
+                });
             });
         });
     };
 
-    // 3. 3D Tilt Effect for Glass Cards
+    // 4. 3D Glass Tilt Logic
     const initTiltEffect = () => {
         document.querySelectorAll('.liquid-glass').forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -44,13 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
                 
-                const rotateX = (y - centerY) / 30;
-                const rotateY = (centerX - x) / 30;
+                const rotateX = (y - centerY) / 25;
+                const rotateY = (centerX - x) / 25;
                 
                 gsap.to(card, {
                     rotateX: rotateX,
                     rotateY: rotateY,
-                    duration: 0.6,
+                    scale: 1.02,
+                    duration: 0.5,
                     ease: "power2.out"
                 });
             });
@@ -59,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 gsap.to(card, {
                     rotateX: 0,
                     rotateY: 0,
+                    scale: 1,
                     duration: 1.2,
                     ease: "elastic.out(1, 0.4)"
                 });
@@ -66,52 +87,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // 4. Terminal Typewriter Logic
-    const initTerminal = () => {
-        const term = document.getElementById('terminal');
-        if (!term) return;
-
-        const codeLines = [
-            "// Building Modern Architecture...",
-            "export default function HeroSection() {",
-            "  return (",
-            "    <section className='relative h-screen bg-black overflow-hidden'>",
-            "      <div className='max-w-7xl mx-auto px-6 py-20'>",
-            "        <h1 className='text-8xl font-black tracking-tighter'>",
-            "          Precision Engineering",
-            "        </h1>",
-            "      </div>",
-            "    </section>",
-            "  );",
-            "}",
-            "[BUILD SUCCESSFUL] in 0.7s",
-            "> Next.js core optimized",
-            "> Sanity CMS schema active",
-            "> Deployment ready for Vercel Edge"
-        ];
-
-        let lineIdx = 0;
-        const typeTerm = () => {
-            if (lineIdx < codeLines.length) {
-                const div = document.createElement('div');
-                div.className = 'mb-1 opacity-0';
-                if(codeLines[lineIdx].includes('[BUILD')) div.className = 'mb-1 opacity-0 text-white font-black';
-                if(codeLines[lineIdx].startsWith('>')) div.className = 'mb-1 opacity-0 text-white/60 italic';
-                div.textContent = codeLines[lineIdx];
-                term.appendChild(div);
-                gsap.to(div, { opacity: 1, x: 5, duration: 0.3 });
-                lineIdx++;
-                setTimeout(typeTerm, 150);
-            }
-        };
-
-        ScrollTrigger.create({
-            trigger: "#terminal",
-            onEnter: typeTerm
+    // 5. Advanced Scroll Reveals (Staggered)
+    const initScrollReveals = () => {
+        gsap.utils.toArray(".reveal").forEach(el => {
+            gsap.from(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power3.out"
+            });
         });
     };
 
-    // 5. Price Calculator Logic
+    // 6. Scroll-Based Navigation Logic
+    const initScrollNav = () => {
+        const nav = document.getElementById('main-nav');
+        if (!nav) return;
+
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 150) {
+                nav.style.transform = 'translate(-50%, -180%)';
+            } else {
+                nav.style.transform = 'translate(-50%, 0)';
+            }
+            lastScrollY = currentScrollY;
+        });
+    };
+
+    // 7. Price Calculator Logic
     const initCalculator = () => {
         const pkg = document.getElementById('calc-package');
         const xtras = document.querySelectorAll('.calc-extra');
@@ -122,45 +133,56 @@ document.addEventListener('DOMContentLoaded', () => {
         const updatePrice = () => {
             let sum = parseInt(pkg.value);
             xtras.forEach(x => { if(x.checked) sum += parseInt(x.value); });
-            total.textContent = sum;
+            
+            // Animation for total price change
+            gsap.to(total, {
+                textContent: sum,
+                duration: 0.6,
+                snap: { textContent: 1 },
+                ease: "power1.out"
+            });
         };
 
         pkg.addEventListener('change', updatePrice);
         xtras.forEach(x => x.addEventListener('change', updatePrice));
     };
 
-    // 6. Scroll-Based Navigation Logic (Hide on Scroll Down, Show on Scroll Up)
-    const initScrollNav = () => {
-        const nav = document.getElementById('main-nav');
-        if (!nav) return;
-
-        let lastScrollY = window.scrollY;
+    // 8. Entrance Timeline (Triggered after loader)
+    const startHeroEntrance = () => {
+        const tl = gsap.timeline();
         
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                // Scrolling Down
-                nav.style.transform = 'translate( -50%, -150% )';
-            } else {
-                // Scrolling Up
-                nav.style.transform = 'translate( -50%, 0 )';
-            }
-            
-            lastScrollY = currentScrollY;
-        });
+        // Target specifically the hero content to avoid affecting the Nav
+        const heroTitle = document.querySelector('#viziune h1');
+        const heroText = document.querySelector('#viziune p');
+        const heroBtns = document.querySelectorAll('#viziune .btn-glass');
+
+        if(heroTitle) tl.from(heroTitle, { y: 60, opacity: 0, duration: 1.5, ease: "power4.out", delay: 0.2, clearProps: "all" });
+        if(heroText) tl.from(heroText, { y: 30, opacity: 0, duration: 1, ease: "power3.out", clearProps: "all" }, "-=1.1");
+        if(heroBtns.length > 0) tl.from(heroBtns, { scale: 0.9, opacity: 0, duration: 0.8, ease: "back.out(1.7)", stagger: 0.1, clearProps: "all" }, "-=0.7");
     };
 
-    // 7. Loader Removal Logic (Optimized)
+    // 9. Loader Logic
     const hideLoader = () => {
         const loader = document.getElementById('loader');
         if (loader) {
             setTimeout(() => {
                 loader.style.transform = 'translateY(-100%)';
+                
+                // Fire animations
+                startHeroEntrance();
+                
+                // Failsafe: Ensure buttons are visible even if GSAP fails
+                setTimeout(() => {
+                    document.querySelectorAll('.btn-glass').forEach(b => b.style.opacity = "1");
+                }, 2000);
+
                 setTimeout(() => {
                     loader.style.display = 'none';
                 }, 1000);
             }, 800);
+        } else {
+            // If no loader, just show everything
+            startHeroEntrance();
         }
     };
 

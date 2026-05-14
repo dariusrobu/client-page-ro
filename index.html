@@ -18,6 +18,10 @@
     <!-- Animation Libraries (GSAP) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Smooth Scroll (Lenis) -->
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script> 
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
 
     <!-- Tailwind Config -->
     <script>
@@ -63,7 +67,7 @@
                 <div class="w-48 h-[1px] bg-white/10 relative overflow-hidden mb-6">
                     <div class="absolute inset-0 bg-white w-full -translate-x-full animate-loader-progress"></div>
                 </div>
-                <div class="text-[8px] font-heading font-black text-white/30 uppercase tracking-[0.8em] animate-pulse">Establishing Architecture</div>
+                <div class="text-[8px] font-heading font-black text-white uppercase tracking-[0.8em] animate-pulse">Establishing Architecture</div>
             </div>
         </div>
     </div>
@@ -92,42 +96,35 @@
         <!-- Hero Section -->
         <section id="viziune" class="min-h-screen flex items-center justify-center px-6 pt-32 pb-20">
             <div class="max-w-7xl w-full text-center">
-                <div class="inline-block px-6 py-2 border border-white/10 rounded-full mb-10 reveal">
-                    <span class="text-white/40 text-[9px] font-heading font-black uppercase tracking-[0.5em]">Eliminăm zgomotul tehnic. Generăm rezultate.</span>
-                </div>
                 <h1 class="text-3xl sm:text-5xl md:text-8xl lg:text-[7rem] font-heading font-black uppercase leading-[0.9] heading-xl mb-10 reveal text-white">
                     Site-ul care lucrează <br> <span class="text-glow italic">Pentru Tine.</span>
                 </h1>
-                <p class="text-base sm:text-lg md:text-xl text-offwhite/40 max-w-4xl mx-auto mb-16 font-light leading-relaxed reveal">
+                <p class="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto mb-16 font-light leading-relaxed reveal">
                     Te concentrezi pe afacerea ta, noi ne ocupăm de restul. Primești o prezență online care <br class="hidden sm:block"> 
                     se încarcă instant, atrage clienți și <span class="text-white font-semibold">îți aparține 100%.</span> Fără bătăi de cap.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row justify-center gap-6 mb-24 reveal">
-                    <a href="#custom" class="px-8 sm:px-10 py-5 btn-glass font-heading font-black uppercase text-[10px] tracking-[0.3em] hover:bg-offwhite transition-all italic">Descoperă Soluția</a>
-                    <div class="flex items-center space-x-4 px-6 sm:px-8 py-5 border border-white/5 rounded-sm justify-center">
-                        <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                        <span class="text-[9px] font-heading font-black uppercase tracking-[0.3em] text-white/30">Suport Local în Cluj-Napoca</span>
-                    </div>
+                    <a href="https://wa.me/40758462498" class="px-8 sm:px-10 py-5 btn-glass font-heading font-black uppercase text-[10px] tracking-[0.3em] hover:bg-offwhite transition-all italic">Programează Consultanța</a>
                 </div>
 
                 <!-- Scores -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto border-t border-white/5 pt-12 reveal">
                     <div>
                         <div class="text-3xl font-heading font-black text-white italic">100%</div>
-                        <div class="text-[8px] uppercase tracking-widest text-white/20 mt-2">Performance</div>
+                        <div class="text-[8px] uppercase tracking-widest text-white/90 mt-2">Performance</div>
                     </div>
                     <div>
                         <div class="text-3xl font-heading font-black text-white italic">100%</div>
-                        <div class="text-[8px] uppercase tracking-widest text-white/20 mt-2">Accessibility</div>
+                        <div class="text-[8px] uppercase tracking-widest text-white/90 mt-2">Accessibility</div>
                     </div>
                     <div>
                         <div class="text-3xl font-heading font-black text-white italic">100%</div>
-                        <div class="text-[8px] uppercase tracking-widest text-white/20 mt-2">Best Practices</div>
+                        <div class="text-[8px] uppercase tracking-widest text-white/90 mt-2">Best Practices</div>
                     </div>
                     <div>
                         <div class="text-3xl font-heading font-black text-white italic">100%</div>
-                        <div class="text-[8px] uppercase tracking-widest text-white/20 mt-2">SEO</div>
+                        <div class="text-[8px] uppercase tracking-widest text-white/90 mt-2">SEO</div>
                     </div>
                 </div>
             </div>
@@ -138,32 +135,32 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 mb-32">
                 <div class="reveal">
                     <h2 class="text-3xl sm:text-4xl md:text-7xl font-heading font-black uppercase italic leading-none mb-10">
-                        Eficiență <br> <span class="text-white/20 text-glow">Digitală.</span>
+                        Eficiență <br> <span class="text-white/90 text-glow">Digitală.</span>
                     </h2>
-                    <p class="text-offwhite/40 text-base sm:text-lg font-light leading-relaxed max-w-lg">
+                    <p class="text-white text-base sm:text-lg font-light leading-relaxed max-w-lg">
                         Nu folosim template-uri care îți încetinesc afacerea. Scriem fiecare linie de cod pentru a asigura performanță maximă și vizibilitate în Google. Primești proprietate totală și €0 mentenanță lunară.
                     </p>
                 </div>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div class="liquid-glass p-6 sm:p-10 reveal group hover:bg-white/[0.05] transition-colors">
-                        <span class="text-[10px] font-heading font-black text-white/20 mb-6 block">01 //</span>
+                        <span class="text-[10px] font-heading font-black text-white/90 mb-6 block">01 //</span>
                         <h3 class="text-lg font-heading font-black uppercase italic mb-4">Viteză care Vinde</h3>
-                        <p class="text-[11px] text-offwhite/30 leading-relaxed uppercase tracking-wider">Fiecare secundă de încărcare pierdută înseamnă clienți care pleacă la competiție. Site-urile noastre sunt proiectate să fie instantanee.</p>
+                        <p class="text-[11px] text-white/80 leading-relaxed uppercase tracking-wider">Fiecare secundă de încărcare pierdută înseamnă clienți care pleacă la competiție. Site-urile noastre sunt proiectate să fie instantanee.</p>
                     </div>
                     <div class="liquid-glass p-6 sm:p-10 reveal group hover:bg-white/[0.05] transition-colors">
-                        <span class="text-[10px] font-heading font-black text-white/20 mb-6 block">02 //</span>
+                        <span class="text-[10px] font-heading font-black text-white/90 mb-6 block">02 //</span>
                         <h3 class="text-lg font-heading font-black uppercase italic mb-4">Costuri Recurente €0</h3>
-                        <p class="text-[11px] text-offwhite/30 leading-relaxed uppercase tracking-wider">Spre deosebire de restul pieței, nu îți vindem un abonament mascat. Site-ul tău nu are nevoie de reparații constante sau mentenanță plătită.</p>
+                        <p class="text-[11px] text-white/80 leading-relaxed uppercase tracking-wider">Spre deosebire de restul pieței, nu îți vindem un abonament mascat. Site-ul tău nu are nevoie de reparații constante sau mentenanță plătită.</p>
                     </div>
                     <div class="liquid-glass p-6 sm:p-10 reveal group hover:bg-white/[0.05] transition-colors">
-                        <span class="text-[10px] font-heading font-black text-white/20 mb-6 block">03 //</span>
+                        <span class="text-[10px] font-heading font-black text-white/90 mb-6 block">03 //</span>
                         <h3 class="text-lg font-heading font-black uppercase italic mb-4">Proprietate Deplină</h3>
-                        <p class="text-[11px] text-offwhite/30 leading-relaxed uppercase tracking-wider">Site-ul este un activ al firmei tale, nu o chirie pe o platformă limitată. Ai control total și libertate absolută asupra propriului cod.</p>
+                        <p class="text-[11px] text-white/80 leading-relaxed uppercase tracking-wider">Site-ul este un activ al firmei tale, nu o chirie pe o platformă limitată. Ai control total și libertate absolută asupra propriului cod.</p>
                     </div>
                     <div class="liquid-glass p-6 sm:p-10 reveal group hover:bg-white/[0.05] transition-colors">
-                        <span class="text-[10px] font-heading font-black text-white/20 mb-6 block">04 //</span>
+                        <span class="text-[10px] font-heading font-black text-white/90 mb-6 block">04 //</span>
                         <h3 class="text-lg font-heading font-black uppercase italic mb-4">Securitate Imbatabilă</h3>
-                        <p class="text-[11px] text-offwhite/30 leading-relaxed uppercase tracking-wider">Îți protejăm imaginea și datele. Arhitectura noastră custom elimină riscul atacurilor automate care afectează platformele generice.</p>
+                        <p class="text-[11px] text-white/80 leading-relaxed uppercase tracking-wider">Îți protejăm imaginea și datele. Arhitectura noastră custom elimină riscul atacurilor automate care afectează platformele generice.</p>
                     </div>
                 </div>
             </div>
@@ -177,7 +174,7 @@
                             <div class="w-2 h-2 rounded-full bg-white/10"></div>
                             <div class="w-2 h-2 rounded-full bg-white/10"></div>
                         </div>
-                        <span class="text-[8px] font-heading font-black uppercase tracking-[0.4em] text-white/20 italic">#CUSTOM-ENGINEERING :: devd-arch-studio</span>
+                        <span class="text-[8px] font-heading font-black uppercase tracking-[0.4em] text-white/90 italic">#CUSTOM-ENGINEERING :: devd-arch-studio</span>
                     </div>
                     <div class="p-6 md:p-10 font-mono text-[10px] md:text-sm leading-loose text-white/40 h-[300px] md:h-[450px] overflow-x-auto whitespace-pre" id="terminal">
 // Building Modern Architecture...
@@ -208,7 +205,7 @@ export default function HeroSection() {
                         <h2 class="text-4xl md:text-6xl font-heading font-black uppercase italic mb-10 leading-tight">
                             Tehnologie de <br> <span class="text-white text-glow">Nivel Mondial.</span>
                         </h2>
-                        <p class="text-offwhite/40 text-lg font-light leading-relaxed mb-12">
+                        <p class="text-white text-lg font-light leading-relaxed mb-12">
                             Folosim aceleași instrumente ca giganții tech (Airbnb, Nike, Uber) pentru a-ți oferi un avantaj competitiv real. Obții un site care nu doar arată premium, ci este construit să reziste și să performeze la standarde globale.
                         </p>
                         <div class="flex flex-wrap gap-6 md:gap-8 opacity-20 filter grayscale">
@@ -223,7 +220,7 @@ export default function HeroSection() {
                     <div class="liquid-glass p-8 md:p-16 reveal relative">
                         <div class="absolute -top-4 -right-4 bg-white text-black px-4 py-2 font-heading font-black text-[8px] uppercase tracking-widest italic shadow-2xl">Dashboard Activ</div>
                         <h3 class="text-3xl font-heading font-black uppercase italic mb-6">Control Total <br> în 10 Secunde.</h3>
-                        <p class="text-offwhite/40 text-sm leading-loose mb-10">
+                        <p class="text-white text-sm leading-loose mb-10">
                             Administrezi site-ul la fel de ușor ca o postare pe rețelele sociale. Modifici prețuri, servicii sau imagini instantaneu, direct de pe telefon, fără să mai depinzi de un programator.
                         </p>
                         <div class="p-6 border border-white/10 rounded-2xl flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
@@ -250,9 +247,9 @@ export default function HeroSection() {
                     <div class="absolute bottom-12 left-8 md:left-20 max-w-xl">
                         <div class="text-[10px] font-heading font-black text-white/40 uppercase tracking-[0.5em] mb-4 italic">Atelierul de Creație</div>
                         <h3 class="text-3xl md:text-5xl font-heading font-black uppercase italic text-white leading-tight">
-                            Unde Strategia devine <br> <span class="text-white/20 italic">Realitate Digitală.</span>
+                            Unde Strategia devine <br> <span class="text-white/90 italic">Realitate Digitală.</span>
                         </h3>
-                        <p class="mt-6 text-offwhite/40 text-sm md:text-base font-light leading-relaxed">
+                        <p class="mt-6 text-white text-sm md:text-base font-light leading-relaxed">
                             Nu construim site-uri pe bandă rulantă. Fiecare proiect este rezultatul unui proces minuțios de arhitectură digitală, desfășurat într-un mediu dedicat excelenței. Rezultatul? Un instrument de business care îți reprezintă brandul fără niciun compromis.
                         </p>
                     </div>
@@ -265,11 +262,11 @@ export default function HeroSection() {
             <div class="max-w-7xl mx-auto">
                 <div class="flex flex-col md:flex-row justify-between items-center mb-16 md:mb-24 gap-10 reveal">
                     <h2 class="text-4xl sm:text-5xl md:text-8xl font-heading font-black uppercase italic leading-none text-white">
-                        Arhitectură în <br> <span class="text-white/20">Acțiune.</span>
+                        Arhitectură în <br> <span class="text-white/90">Acțiune.</span>
                     </h2>
                     <div class="text-center md:text-right">
                         <p class="text-white font-heading font-black uppercase text-[12px] tracking-[0.2em] mb-3 italic">Portofoliu Selectiv</p>
-                        <p class="text-white/20 text-[9px] uppercase tracking-[0.3em] font-black italic">O selecție de soluții care livrează rezultate reale.</p>
+                        <p class="text-white/90 text-[9px] uppercase tracking-[0.3em] font-black italic">O selecție de soluții care livrează rezultate reale.</p>
                     </div>
                 </div>
 
@@ -281,7 +278,7 @@ export default function HeroSection() {
                         
                         <div class="text-[10px] font-heading font-black text-white/40 uppercase tracking-[0.5em] mb-8 italic">Showcase Online</div>
                         <h3 class="text-3xl md:text-6xl font-heading font-black uppercase italic text-white mb-12 leading-tight">
-                            Explorează Proiectele <br> <span class="text-white/20 italic">Noastre Recente.</span>
+                            Explorează Proiectele <br> <span class="text-white/90 italic">Noastre Recente.</span>
                         </h3>
                         
                         <a href="https://react-portfolio-sable-three.vercel.app/" target="_blank" class="px-12 py-6 btn-glass font-heading font-black uppercase text-[11px] tracking-[0.4em] italic hover:scale-105 transition-all shadow-2xl relative z-10">
@@ -301,7 +298,7 @@ export default function HeroSection() {
         <!-- Comparison Table -->
         <section id="comparatie" class="py-24 md:py-40 px-6 max-w-7xl mx-auto">
             <div class="text-center mb-16 md:mb-24 reveal">
-                <h2 class="text-3xl sm:text-4xl md:text-7xl font-heading font-black uppercase italic mb-6">&lt;DevD&gt; Custom <span class="text-white/20">vs.</span> Soluții Standard</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-7xl font-heading font-black uppercase italic mb-6">&lt;DevD&gt; Custom <span class="text-white/90">vs.</span> Soluții Standard</h2>
                 <p class="text-offwhite/20 text-[8px] sm:text-[9px] font-black uppercase tracking-[0.4em]">Diferența dintre un Site Generic și un Activ Digital.</p>
             </div>
 
@@ -329,15 +326,15 @@ export default function HeroSection() {
                     <div class="space-y-12">
                         <div>
                             <div class="flex items-center space-x-4 mb-4 font-heading font-black uppercase text-sm text-white"><span>✓</span> <h4>Viteză Instantanee</h4></div>
-                            <p class="text-[11px] uppercase tracking-wider ml-8 text-offwhite/40">Performanță brută (100/100) care transformă vizitatorii în clienți reali.</p>
+                            <p class="text-[11px] uppercase tracking-wider ml-8 text-white">Performanță brută (100/100) care transformă vizitatorii în clienți reali.</p>
                         </div>
                         <div>
                             <div class="flex items-center space-x-4 mb-4 font-heading font-black uppercase text-sm text-white"><span>✓</span> <h4>Stabilitate pe Viață</h4></div>
-                            <p class="text-[11px] uppercase tracking-wider ml-8 text-offwhite/40">Arhitectură scrisă manual, solidă și protejată împotriva oricărei amenințări.</p>
+                            <p class="text-[11px] uppercase tracking-wider ml-8 text-white">Arhitectură scrisă manual, solidă și protejată împotriva oricărei amenințări.</p>
                         </div>
                         <div>
                             <div class="flex items-center space-x-4 mb-4 font-heading font-black uppercase text-sm text-white"><span>✓</span> <h4>Investiție Unică, €0 Taxe</h4></div>
-                            <p class="text-[11px] uppercase tracking-wider ml-8 text-offwhite/40">Plătești o singură dată pentru un produs de elită. Fără costuri ascunse.</p>
+                            <p class="text-[11px] uppercase tracking-wider ml-8 text-white">Plătești o singură dată pentru un produs de elită. Fără costuri ascunse.</p>
                         </div>
                     </div>
                 </div>
@@ -347,7 +344,7 @@ export default function HeroSection() {
         <!-- Pricing Section -->
         <section id="preturi" class="py-24 md:py-40 px-6 max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-24 gap-10">
-                <h2 class="text-4xl sm:text-5xl md:text-9xl font-heading font-black uppercase italic leading-none reveal text-white text-center md:text-left">Investiție <br> <span class="text-white/20">Transparentă.</span></h2>
+                <h2 class="text-4xl sm:text-5xl md:text-9xl font-heading font-black uppercase italic leading-none reveal text-white text-center md:text-left">Investiție <br> <span class="text-white/90">Transparentă.</span></h2>
                 <div class="text-center md:text-right reveal">
                     <p class="text-white font-heading font-black uppercase text-[12px] tracking-[0.2em] mb-3 italic underline decoration-white/20">Economisești €500+ / An</p>
                     <p class="text-offwhite/20 text-[9px] uppercase tracking-[0.3em] font-black">Infrastructură Enterprise inclusă.</p>
@@ -357,9 +354,9 @@ export default function HeroSection() {
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 lg:gap-2 mb-32">
                 <!-- Starter -->
                 <div class="liquid-glass p-8 md:p-12 reveal group">
-                    <div class="text-white/30 text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Site de Prezentare</div>
+                    <div class="text-white text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Site de Prezentare</div>
                     <div class="text-6xl font-heading font-black mb-16 italic text-white">€300</div>
-                    <p class="text-[10px] text-offwhite/40 uppercase tracking-widest font-black mb-12">Lansare rapidă (One-Page). Ideal pentru prezență locală.</p>
+                    <p class="text-[10px] text-white uppercase tracking-widest font-black mb-12">Lansare rapidă (One-Page). Ideal pentru prezență locală.</p>
                     <ul class="space-y-6 text-[9px] uppercase font-black tracking-[0.2em] opacity-30 mb-16">
                         <li>✓ Arhitectură One-Page</li>
                         <li>✓ Design Unic (Fără Șabloane)</li>
@@ -372,23 +369,23 @@ export default function HeroSection() {
                 <!-- Business -->
                 <div class="liquid-glass p-8 md:p-12 text-white relative overflow-hidden reveal group z-20 rounded-3xl shadow-2xl">
                     <div class="absolute top-0 right-0 bg-white text-black px-6 py-3 rounded-bl-2xl font-heading font-black text-[8px] uppercase italic tracking-[0.2em] z-30 shadow-2xl">BEST CHOICE</div>
-                    <div class="text-white/30 text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Site Complet (Multi-Page)</div>
+                    <div class="text-white text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Site Complet (Multi-Page)</div>
                     <div class="text-6xl font-heading font-black mb-16 italic text-white">€450</div>
-                    <p class="text-[10px] text-offwhite/40 uppercase tracking-widest font-black mb-12">Soluția optimă pentru afaceri în expansiune.</p>
+                    <p class="text-[10px] text-white uppercase tracking-widest font-black mb-12">Soluția optimă pentru afaceri în expansiune.</p>
                     <ul class="space-y-6 text-[9px] uppercase font-black tracking-[0.2em] mb-16 opacity-30">
                         <li>✓ Structură Multi-Page (până la 6)</li>
                         <li>✓ Panou de Control (Administrare)</li>
                         <li>✓ Secțiuni Dinamice (Blog/Știri)</li>
                         <li>✓ Animații Premium (Wow Factor)</li>
                     </ul>
-                    <a href="https://wa.me/40758462498" class="block w-full text-center py-6 btn-glass font-heading font-black uppercase text-[9px] italic tracking-[0.3em] hover:scale-[1.03] transition-transform">Începe Proiectul</a>
+                    <a href="https://wa.me/40758462498" class="block w-full text-center py-6 btn-glass font-heading font-black uppercase text-[9px] italic tracking-[0.3em] hover:scale-[1.03] transition-transform">Solicită Consultanță Gratuită</a>
                 </div>
 
                 <!-- Elite -->
                 <div class="liquid-glass p-8 md:p-12 reveal group">
-                    <div class="text-white/30 text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Aplicație & E-Commerce</div>
+                    <div class="text-white text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Aplicație & E-Commerce</div>
                     <div class="text-6xl font-heading font-black mb-16 italic text-white">€800</div>
-                    <p class="text-[10px] text-offwhite/40 uppercase tracking-widest font-black mb-12">Soluții avansate și magazine online de elită.</p>
+                    <p class="text-[10px] text-white uppercase tracking-widest font-black mb-12">Soluții avansate și magazine online de elită.</p>
                     <ul class="space-y-6 text-[9px] uppercase font-black tracking-[0.2em] opacity-30 mb-16">
                         <li>✓ Magazin Online / Aplicație</li>
                         <li>✓ Integrări API & Plăți Online</li>
@@ -401,7 +398,7 @@ export default function HeroSection() {
 
             <!-- Price Calculator -->
             <div class="max-w-4xl mx-auto liquid-glass p-8 md:p-20 reveal">
-                <h3 class="text-2xl md:text-3xl font-heading font-black uppercase italic mb-12 text-center">Configurează-ți <span class="text-white/20">Site-ul.</span></h3>
+                <h3 class="text-2xl md:text-3xl font-heading font-black uppercase italic mb-12 text-center">Configurează-ți <span class="text-white/90">Site-ul.</span></h3>
                 
                 <div class="grid md:grid-cols-2 gap-12 md:gap-16">
                     <div class="space-y-10">
@@ -418,7 +415,7 @@ export default function HeroSection() {
                             
                             <!-- Group: Impact & Viteza -->
                             <div class="mb-10">
-                                <div class="text-[7px] font-heading font-black uppercase tracking-widest text-white/20 mb-6 italic">Impact & Viteză</div>
+                                <div class="text-[7px] font-heading font-black uppercase tracking-widest text-white/90 mb-6 italic">Impact & Viteză</div>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <label class="flex items-start space-x-4 cursor-pointer group">
                                         <input type="checkbox" class="calc-extra mt-1 w-5 h-5 accent-white" value="100">
@@ -446,7 +443,7 @@ export default function HeroSection() {
 
                             <!-- Group: Business & Support -->
                             <div>
-                                <div class="text-[7px] font-heading font-black uppercase tracking-widest text-white/20 mb-6 italic">Business & Suport</div>
+                                <div class="text-[7px] font-heading font-black uppercase tracking-widest text-white/90 mb-6 italic">Business & Suport</div>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <label class="flex items-start space-x-4 cursor-pointer group">
                                         <input type="checkbox" class="calc-extra mt-1 w-5 h-5 accent-white" value="49">
@@ -494,7 +491,7 @@ export default function HeroSection() {
                             <div class="text-5xl md:text-7xl font-heading font-black italic">€<span id="total-price">450</span></div>
                         </div>
 
-                        <a href="https://wa.me/40758462498" class="mt-8 md:mt-12 block w-full text-center py-6 btn-glass font-heading font-black uppercase text-[10px] italic tracking-[0.3em] hover:invert transition-all">Vreau Oferta</a>
+                        <a href="https://wa.me/40758462498" class="mt-8 md:mt-12 block w-full text-center py-6 btn-glass font-heading font-black uppercase text-[10px] italic tracking-[0.3em] hover:invert transition-all">Rezervă Consultanța</a>
                     </div>
                 </div>
             </div>
@@ -519,11 +516,11 @@ export default function HeroSection() {
             <div class="max-w-7xl mx-auto">
                 <div class="flex flex-col md:flex-row justify-between items-center mb-24 gap-10 reveal">
                     <h2 class="text-4xl sm:text-5xl md:text-8xl font-heading font-black uppercase italic leading-none text-white">
-                        Echipa <br> <span class="text-white/20">Arhitecturală.</span>
+                        Echipa <br> <span class="text-white/90">Arhitecturală.</span>
                     </h2>
                     <div class="text-center md:text-right">
                         <p class="text-white font-heading font-black uppercase text-[12px] tracking-[0.2em] mb-3 italic">100% Human Intelligence</p>
-                        <p class="text-white/20 text-[9px] uppercase tracking-[0.3em] font-black italic">Codul nostru nu este generat, este sculptat.</p>
+                        <p class="text-white/90 text-[9px] uppercase tracking-[0.3em] font-black italic">Codul nostru nu este generat, este sculptat.</p>
                     </div>
                 </div>
 
@@ -564,7 +561,7 @@ export default function HeroSection() {
             <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-24">
                 <div class="text-white font-heading font-black text-5xl italic tracking-tighter">&lt;DevD&gt;</div>
                 
-                <div class="flex flex-wrap justify-center gap-10 md:gap-20 text-[10px] font-heading font-black uppercase tracking-[0.4em] text-white/30 italic">
+                <div class="flex flex-wrap justify-center gap-10 md:gap-20 text-[10px] font-heading font-black uppercase tracking-[0.4em] text-white italic">
                     <a href="https://wa.me/40758462498" class="hover:text-white transition-colors">WhatsApp</a>
                     <a href="mailto:robu.i.darius@gmail.com" class="hover:text-white transition-colors">Email</a>
                     <a href="https://www.linkedin.com/in/darius-robu-095997386" class="hover:text-white transition-colors">LinkedIn</a>
