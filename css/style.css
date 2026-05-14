@@ -1,17 +1,23 @@
 :root {
-    --glass: rgba(255, 255, 255, 0.02);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --white-glow: rgba(255, 255, 255, 0.05);
+    --glass: rgba(15, 10, 31, 0.4);
+    --glass-border: rgba(139, 92, 246, 0.2);
+    --white-glow: rgba(139, 92, 246, 0.15);
+    --violet-deep: #1e1b4b; /* Indigo 950 */
+    --purple-dark: #4c1d95; /* Violet 950 */
+    --blue-deep: #172554;   /* Blue 950 */
 }
 
 body {
-    background-color: #000000;
+    background: radial-gradient(circle at 0% 0%, var(--violet-deep) 0%, #000 50%),
+                radial-gradient(circle at 100% 100%, var(--blue-deep) 0%, #000 50%),
+                #000;
     color: #F5F5F7;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-attachment: fixed;
 }
 
 main {
@@ -21,11 +27,11 @@ main {
 /* Liquid Glass Effect */
 .liquid-glass {
     background: var(--glass);
-    backdrop-filter: blur(40px) saturate(100%);
-    -webkit-backdrop-filter: blur(40px) saturate(100%);
+    backdrop-filter: blur(40px) saturate(150%);
+    -webkit-backdrop-filter: blur(40px) saturate(150%);
     border: 1px solid var(--glass-border);
     border-radius: 32px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
 }
 
 .reveal {
@@ -38,13 +44,16 @@ main {
     position: fixed;
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, var(--white-glow) 0%, rgba(255, 255, 255, 0) 70%);
-    filter: blur(120px);
     border-radius: 50%;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.4;
+    opacity: 0.5;
+    filter: blur(120px);
 }
+
+#blob1 { background: radial-gradient(circle, #7c3aed 0%, transparent 70%); } /* Violet */
+#blob2 { background: radial-gradient(circle, #2563eb 0%, transparent 70%); } /* Blue */
+#blob3 { background: radial-gradient(circle, #db2777 0%, transparent 70%); } /* Pink/Purple */
 
 /* Typography Enhancements */
 .text-glow {
