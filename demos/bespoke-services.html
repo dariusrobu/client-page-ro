@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bespoke Experiences | Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,800;1,400;1,800&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        :root { --glass: rgba(255, 255, 255, 0.03); --border: rgba(255, 255, 255, 0.12); }
+        body { font-family: 'Inter', sans-serif; background: #050508; color: #fff; overflow-x: hidden; opacity: 0; }
+        .serif { font-family: 'EB Garamond', serif; }
+        
+        .glass-background { position: fixed; inset: 0; z-index: -1; background: url('../ultra_premium_glassmorphism_texture_1778799423352.png'); background-size: cover; background-position: center; filter: brightness(0.6) contrast(1.1); scale: 1.1; }
+        
+        .ultra-glass { background: var(--glass); backdrop-filter: blur(50px); border: 1px solid var(--border); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255,255,255,0.05); border-radius: 40px; transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .ultra-glass:hover { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.06); transform: translateY(-10px); }
+        
+        .refraction-edge { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.1) 100%); pointer-events: none; opacity: 0.5; }
+        
+        .reveal { opacity: 0; transform: translateY(30px); }
+        .text-mask { -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-image: linear-gradient(90deg, #fff, rgba(255,255,255,0.5)); }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="glass-background"></div>
+
+    <nav class="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl z-[100] ultra-glass px-10 py-5 flex justify-between items-center">
+        <div class="serif italic text-2xl font-black tracking-tighter">Bespoke Studio</div>
+        <div class="hidden md:flex space-x-12 text-[10px] uppercase font-bold tracking-[0.3em] opacity-60">
+            <a href="bespoke.html">Acasă</a>
+            <a href="bespoke-services.html" class="text-white opacity-100">Experiențe</a>
+            <a href="bespoke-contact.html" class="hover:opacity-100 transition-opacity">Contact</a>
+        </div>
+        <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-[10px] font-black">BS</div>
+    </nav>
+
+    <main class="relative z-10 pt-48 pb-20 px-6">
+        <header class="max-w-6xl mx-auto mb-20 md:mb-32">
+            <div class="text-[10px] uppercase font-bold tracking-[0.8em] opacity-40 mb-8 italic">Module // Architecture</div>
+            <h1 class="text-6xl md:text-9xl serif italic font-black text-white text-mask">Servicii.</h1>
+        </header>
+
+        <section class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 md:gap-24">
+            <div class="ultra-glass p-16 reveal relative overflow-hidden">
+                <div class="refraction-edge"></div>
+                <h3 class="text-4xl serif italic font-black mb-8">Design Vizual</h3>
+                <p class="text-sm opacity-50 leading-relaxed uppercase tracking-widest mb-12">Creăm identități digitale care transcend tendințele trecătoare, concentrându-ne pe eleganță atemporală.</p>
+                <div class="flex flex-wrap gap-4">
+                    <span class="px-6 py-2 rounded-full border border-white/10 text-[9px] font-bold uppercase tracking-widest">Brand UI</span>
+                    <span class="px-6 py-2 rounded-full border border-white/10 text-[9px] font-bold uppercase tracking-widest">Motion Design</span>
+                </div>
+            </div>
+
+            <div class="ultra-glass p-16 reveal relative overflow-hidden">
+                <div class="refraction-edge"></div>
+                <h3 class="text-4xl serif italic font-black mb-8">Dezvoltare Core</h3>
+                <p class="text-sm opacity-50 leading-relaxed uppercase tracking-widest mb-12">Performanță pură sub capotă. Implementări tehnice care asigură o experiență rapidă și sigură.</p>
+                <div class="flex flex-wrap gap-4">
+                    <span class="px-6 py-2 rounded-full border border-white/10 text-[9px] font-bold uppercase tracking-widest">Next.js</span>
+                    <span class="px-6 py-2 rounded-full border border-white/10 text-[9px] font-bold uppercase tracking-widest">Headless CMS</span>
+                </div>
+            </div>
+            
+            <div class="ultra-glass p-16 reveal md:col-span-2 relative overflow-hidden">
+                <div class="refraction-edge"></div>
+                <h3 class="text-4xl serif italic font-black mb-8">Ecosistem Digital</h3>
+                <p class="text-sm opacity-50 leading-relaxed uppercase tracking-widest mb-12">Mentenanță premium și suport strategic pentru a asigura creșterea constantă a platformei tale.</p>
+                <div class="flex flex-wrap gap-4">
+                    <span class="px-6 py-2 rounded-full border border-white/10 text-[9px] font-bold uppercase tracking-widest">SEO Audit</span>
+                    <span class="px-6 py-2 rounded-full border border-white/10 text-[9px] font-bold uppercase tracking-widest">Cloud Scaling</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        gsap.to("body", { opacity: 1, duration: 1.5, ease: "power2.inOut" });
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray(".reveal").forEach(el => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 90%" },
+                y: 50, opacity: 0, duration: 1.5, ease: "power4.out"
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Tier | Futuristic Enterprise Architecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,800;1,400;1,800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        body { font-family: 'EB Garamond', serif; background: #020205; color: #fff; overflow-x: hidden; }
+        .noise { position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: 0.03; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNuKSIvPjwvc3ZnPg=='); }
+        .grid-bg { position: fixed; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; z-index: -1; }
+        .chrome-text { background: linear-gradient(180deg, #fff 0%, #666 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(255,255,255,0.1)); }
+        .liquid-glass { background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(60px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.5s ease; box-shadow: inset 0 0 30px rgba(255,255,255,0.02); }
+        .liquid-glass:hover { background: rgba(255, 255, 255, 0.03); border-color: rgba(255,255,255,0.3); }
+        .glow-stream { position: absolute; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); width: 400px; pointer-events: none; }
+        .perspective-container { perspective: 2000px; width: 100%; overflow: hidden; }
+        .perspective-el { transform-style: preserve-3d; transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1); }
+        .hero-title { font-size: clamp(3rem, 12vw, 12rem); line-height: 0.85; letter-spacing: -0.02em; }
+        section { overflow: hidden; width: 100%; }
+        @media (max-width: 768px) { .perspective-container { perspective: none; } .hero-title { font-size: clamp(2.5rem, 15vw, 8rem); } }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="noise"></div>
+    <div class="grid-bg"></div>
+    
+    <!-- Animated Glow Streams -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="glow-stream" style="top: 20%; left: -10%; animation: flow 8s infinite linear"></div>
+        <div class="glow-stream" style="top: 50%; left: -20%; animation: flow 12s infinite linear 2s"></div>
+        <div class="glow-stream" style="top: 80%; left: -15%; animation: flow 10s infinite linear 5s"></div>
+    </div>
+    <style>@keyframes flow { 0% { transform: translateX(-100%) skewX(-45deg); opacity: 0; } 50% { opacity: 0.3; } 100% { transform: translateX(300%) skewX(-45deg); opacity: 0; } }</style>
+    
+    <nav class="fixed top-0 w-full p-8 md:p-12 flex justify-between items-center z-[100] mix-blend-difference">
+        <div class="flex items-center space-x-4">
+            <div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+            <div class="text-[10px] font-black uppercase tracking-[1em] opacity-40 italic">Elite System</div>
+        </div>
+        <div class="text-[8px] font-black uppercase tracking-widest bg-white text-black px-4 py-2 italic shadow-2xl">Encrypted</div>
+    </nav>
+
+    <main class="perspective-container">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center relative perspective-el overflow-hidden" id="hero-sec">
+            <!-- Background Visual Alignment -->
+            <div class="absolute inset-0 z-0 opacity-20 pointer-events-none scale-110">
+                <img src="../digital_architecture_minimal_1778796547356.png" alt="" class="w-full h-full object-cover blur-2xl">
+            </div>
+            
+            <div class="text-center px-6 relative z-10">
+                <h4 class="text-[10px] font-black uppercase tracking-[1.2em] mb-12 opacity-30 italic reveal">Infrastructură Globală</h4>
+                <h1 class="hero-title font-black italic uppercase chrome-text reveal" id="hero-title">Performanță.</h1>
+            </div>
+        </section>
+
+        <!-- Spectacular Data Section -->
+        <section class="py-32 md:py-60 px-6 max-w-7xl mx-auto perspective-el" id="data-sec">
+            <div class="grid lg:grid-cols-2 gap-20 md:gap-32 items-center">
+                <div class="reveal">
+                    <h2 class="text-5xl md:text-8xl font-black italic uppercase leading-none mb-12">Global <br> Reach.</h2>
+                    <p class="text-xl md:text-3xl font-light opacity-60 leading-tight mb-16">
+                        Pachetul Elite nu este doar un site. Este un hub de putere distribuită, capabil să proceseze volume gigantice de date cu zero latență.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 md:gap-12">
+                        <div class="p-6 md:p-8 liquid-glass rounded-2xl md:rounded-3xl">
+                            <div class="text-3xl md:text-4xl font-black italic mb-2">99.9%</div>
+                            <div class="text-[8px] uppercase tracking-widest opacity-40 italic">Uptime SLA</div>
+                        </div>
+                        <div class="p-6 md:p-8 liquid-glass rounded-2xl md:rounded-3xl">
+                            <div class="text-3xl md:text-4xl font-black italic">50ms</div>
+                            <div class="text-[8px] uppercase tracking-widest opacity-40 italic">Edge Latency</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal relative pt-20 lg:pt-0">
+                    <div class="w-full aspect-square rounded-full border border-white/5 flex items-center justify-center p-8 md:p-12 relative animate-spin-slow">
+                        <div class="absolute inset-0 border-t border-white/40 rounded-full"></div>
+                        <div class="text-center rotate-inverse">
+                            <h3 class="text-xl md:text-2xl font-black italic mb-4 uppercase">Secure Node</h3>
+                            <div class="text-[8px] font-black uppercase tracking-widest opacity-20">Protocol Active</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Grid with Hover Spectacle -->
+        <section class="py-60 px-6 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="liquid-glass p-16 rounded-[60px] reveal hover:scale-105 transition-all duration-700 group cursor-pointer overflow-hidden relative">
+                    <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="text-5xl font-black italic opacity-10 mb-8 italic group-hover:opacity-100 transition-opacity">01</div>
+                    <h4 class="text-xl font-black uppercase tracking-[0.3em] mb-6 italic">Enterprise E-com</h4>
+                    <p class="text-xs opacity-40 leading-relaxed uppercase tracking-widest">Sisteme de tranzacționare complexe, securizate prin protocol bancar.</p>
+                </div>
+                <div class="liquid-glass p-16 rounded-[60px] reveal hover:scale-105 transition-all duration-700 group cursor-pointer overflow-hidden relative mt-12 md:mt-24">
+                    <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="text-5xl font-black italic opacity-10 mb-8 italic group-hover:opacity-100 transition-opacity">02</div>
+                    <h4 class="text-xl font-black uppercase tracking-[0.3em] mb-6 italic">API Mastery</h4>
+                    <p class="text-xs opacity-40 leading-relaxed uppercase tracking-widest">Conectivitate nelimitată cu orice ecosistem digital existent.</p>
+                </div>
+                <div class="liquid-glass p-16 rounded-[60px] reveal hover:scale-105 transition-all duration-700 group cursor-pointer overflow-hidden relative mt-12 md:mt-48">
+                    <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="text-5xl font-black italic opacity-10 mb-8 italic group-hover:opacity-100 transition-opacity">03</div>
+                    <h4 class="text-xl font-black uppercase tracking-[0.3em] mb-6 italic">Elite Support</h4>
+                    <p class="text-xs opacity-40 leading-relaxed uppercase tracking-widest">O echipă dedicată care îți cunoaște afacerea la nivel chirurgical.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-60 px-6 text-center reveal">
+            <h2 class="text-5xl md:text-[10rem] font-black italic uppercase leading-none mb-20 chrome-text">Vârf de Gamă.</h2>
+            <a href="https://wa.me/40758462498" class="px-24 py-8 border border-white/20 hover:bg-white hover:text-black transition-all rounded-full text-[10px] font-black uppercase tracking-[1em] italic">Deveniți Partener</a>
+        </section>
+
+        <footer class="py-40 text-center opacity-10 text-[9px] uppercase tracking-[3em]">
+            Elite Tier Digital Assets :: devd.ro
+        </footer>
+    </main>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation with Space Preservation
+        const title = document.getElementById('hero-title');
+        if (title) {
+            const text = title.innerText;
+            title.innerHTML = text.split('').map(char => {
+                if (char === ' ') return '<span class="reveal-char">&nbsp;</span>';
+                if (char === '\n') return '<br>';
+                return `<span class="reveal-char">${char}</span>`;
+            }).join('');
+            
+            gsap.to(".reveal-char", {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                stagger: 0.05,
+                ease: "power4.out",
+                delay: 0.5,
+                clearProps: "all"
+            });
+        }
+
+        // Perspective Parallax
+        gsap.to("#hero-sec", {
+            scrollTrigger: { trigger: "#hero-sec", start: "top top", end: "bottom top", scrub: true },
+            rotateX: 45, y: -200, opacity: 0
+        });
+
+        gsap.from("#data-sec", {
+            scrollTrigger: { trigger: "#data-sec", start: "top bottom", end: "top center", scrub: true },
+            rotateX: -45, y: 200, opacity: 0
+        });
+
+        // Reveal
+        gsap.utils.toArray(".reveal").forEach(el => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 95%" },
+                y: 100, opacity: 0, duration: 2, ease: "power4.out"
+            });
+        });
+
+        // Inverse rotation for the inner text of the spin animation
+        gsap.to(".rotate-inverse", {
+            scrollTrigger: { trigger: ".animate-spin-slow", start: "top bottom", end: "bottom top", scrub: true },
+            rotate: -360
+        });
+    </script>
+</body>
+</html>

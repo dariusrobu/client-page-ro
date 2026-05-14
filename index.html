@@ -94,146 +94,92 @@
     <main class="relative z-10">
         
         <!-- Hero Section -->
-        <section id="viziune" class="min-h-screen flex items-center justify-center px-6 pt-32 pb-20">
-            <div class="max-w-7xl w-full text-center">
-                <h1 class="text-3xl sm:text-5xl md:text-8xl lg:text-[7rem] font-heading font-black uppercase leading-[0.9] heading-xl mb-10 reveal text-white">
-                    Site-ul care lucrează <br> <span class="text-glow italic">Pentru Tine.</span>
+        <section id="viziune" class="min-h-screen flex items-center justify-center px-6 pt-32 pb-20 relative overflow-hidden">
+            <!-- Hero Image Background -->
+            <div class="absolute inset-0 pointer-events-none opacity-40 mix-blend-screen">
+                <img src="hero_liquid_glass_orb_1778796535418.png" alt="" class="w-full h-full object-cover filter blur-sm scale-110">
+            </div>
+            
+            <div class="max-w-7xl w-full text-center relative z-10">
+                <h1 class="text-3xl sm:text-5xl md:text-8xl lg:text-[7.5rem] font-heading font-black uppercase leading-[0.85] heading-xl mb-12 reveal text-white">
+                    Site-ul care lucrează <br> <span class="text-glow italic text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-400">Pentru Tine.</span>
                 </h1>
-                <p class="text-lg sm:text-xl md:text-2xl text-white max-w-4xl mx-auto mb-16 font-light leading-relaxed reveal">
-                    Te concentrezi pe afacerea ta, noi ne ocupăm de restul. Primești o prezență online care <br class="hidden sm:block"> 
-                    se încarcă instant, atrage clienți și <span class="text-white font-semibold">îți aparține 100%.</span> Fără bătăi de cap.
+                <p class="text-lg sm:text-2xl text-white/90 max-w-4xl mx-auto mb-16 font-light leading-relaxed reveal">
+                    Performanță instantanee. Proprietate totală. <span class="text-white font-semibold underline decoration-violet-500/50">€0 mentenanță.</span>
                 </p>
                 
                 <div class="flex flex-col sm:flex-row justify-center gap-6 mb-24 reveal">
-                    <a href="https://wa.me/40758462498" class="px-8 sm:px-10 py-5 btn-glass font-heading font-black uppercase text-[10px] tracking-[0.3em] hover:bg-offwhite transition-all italic">Programează Consultanța</a>
-                </div>
-
-                <!-- Scores -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto border-t border-white/5 pt-12 reveal">
-                    <div>
-                        <div class="text-3xl font-heading font-black text-white italic">100%</div>
-                        <div class="text-[8px] uppercase tracking-widest text-white/90 mt-2">Performance</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-heading font-black text-white italic">100%</div>
-                        <div class="text-[8px] uppercase tracking-widest text-white/90 mt-2">Accessibility</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-heading font-black text-white italic">100%</div>
-                        <div class="text-[8px] uppercase tracking-widest text-white/90 mt-2">Best Practices</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-heading font-black text-white italic">100%</div>
-                        <div class="text-[8px] uppercase tracking-widest text-white/90 mt-2">SEO</div>
-                    </div>
+                    <a href="https://wa.me/40758462498" class="px-10 py-6 bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 rounded-full font-heading font-black uppercase text-[10px] tracking-[0.4em] transition-all shadow-[0_0_40px_rgba(109,40,217,0.3)] italic">Programează Consultanța</a>
                 </div>
             </div>
         </section>
 
-        <!-- Value Props (The 4 Pillars) -->
-        <section id="custom" class="py-24 md:py-40 px-6 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 mb-32">
+        <!-- Value Props (The 4 Pillars) -->        <section id="strategie" class="py-48 md:py-80 px-6 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 mb-48 items-center">
                 <div class="reveal">
-                    <h2 class="text-3xl sm:text-4xl md:text-7xl font-heading font-black uppercase italic leading-none mb-10">
-                        Eficiență <br> <span class="text-white/90 text-glow">Digitală.</span>
+                    <h2 class="text-4xl sm:text-5xl md:text-[6rem] font-heading font-black uppercase italic leading-[0.85] mb-12">
+                        Eficiență <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-400">Digitală.</span>
                     </h2>
-                    <p class="text-white text-base sm:text-lg font-light leading-relaxed max-w-lg">
-                        Nu folosim template-uri care îți încetinesc afacerea. Scriem fiecare linie de cod pentru a asigura performanță maximă și vizibilitate în Google. Primești proprietate totală și €0 mentenanță lunară.
+                    <p class="text-white text-xl sm:text-3xl font-light leading-relaxed max-w-xl opacity-80">
+                        Nu folosim template-uri. Scriem fiecare linie de cod pentru a asigura profitabilitate maximă.
                     </p>
                 </div>
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div class="liquid-glass p-6 sm:p-10 reveal group hover:bg-white/[0.05] transition-colors">
-                        <span class="text-[10px] font-heading font-black text-white/90 mb-6 block">01 //</span>
-                        <h3 class="text-lg font-heading font-black uppercase italic mb-4">Viteză care Vinde</h3>
-                        <p class="text-[11px] text-white/80 leading-relaxed uppercase tracking-wider">Fiecare secundă de încărcare pierdută înseamnă clienți care pleacă la competiție. Site-urile noastre sunt proiectate să fie instantanee.</p>
-                    </div>
-                    <div class="liquid-glass p-6 sm:p-10 reveal group hover:bg-white/[0.05] transition-colors">
-                        <span class="text-[10px] font-heading font-black text-white/90 mb-6 block">02 //</span>
-                        <h3 class="text-lg font-heading font-black uppercase italic mb-4">Costuri Recurente €0</h3>
-                        <p class="text-[11px] text-white/80 leading-relaxed uppercase tracking-wider">Spre deosebire de restul pieței, nu îți vindem un abonament mascat. Site-ul tău nu are nevoie de reparații constante sau mentenanță plătită.</p>
-                    </div>
-                    <div class="liquid-glass p-6 sm:p-10 reveal group hover:bg-white/[0.05] transition-colors">
-                        <span class="text-[10px] font-heading font-black text-white/90 mb-6 block">03 //</span>
-                        <h3 class="text-lg font-heading font-black uppercase italic mb-4">Proprietate Deplină</h3>
-                        <p class="text-[11px] text-white/80 leading-relaxed uppercase tracking-wider">Site-ul este un activ al firmei tale, nu o chirie pe o platformă limitată. Ai control total și libertate absolută asupra propriului cod.</p>
-                    </div>
-                    <div class="liquid-glass p-6 sm:p-10 reveal group hover:bg-white/[0.05] transition-colors">
-                        <span class="text-[10px] font-heading font-black text-white/90 mb-6 block">04 //</span>
-                        <h3 class="text-lg font-heading font-black uppercase italic mb-4">Securitate Imbatabilă</h3>
-                        <p class="text-[11px] text-white/80 leading-relaxed uppercase tracking-wider">Îți protejăm imaginea și datele. Arhitectura noastră custom elimină riscul atacurilor automate care afectează platformele generice.</p>
+                <div class="reveal">
+                    <div class="relative h-[500px] md:h-[600px] flex items-center justify-center" style="perspective: 1500px;">
+                        <!-- UI Layer -->
+                        <div class="absolute w-72 h-40 md:w-96 md:h-52 liquid-glass border-violet-500/50 rounded-3xl flex items-center justify-center transform -translate-y-24 -rotate-x-[30deg] -rotate-z-[10deg] animate-float-slow shadow-2xl z-30 group hover:border-violet-400 transition-all">
+                            <div class="text-center transform rotate-z-[10deg] rotate-x-[30deg]">
+                                <div class="text-[8px] font-black uppercase tracking-[0.5em] mb-3 opacity-40">Layer 03</div>
+                                <h4 class="text-sm md:text-lg font-black uppercase tracking-widest italic leading-tight">User Experience <br> & Design</h4>
+                                <div class="mt-4 flex space-x-2 justify-center opacity-40">
+                                    <div class="w-1.5 h-1.5 bg-violet-400 rounded-full animate-pulse"></div>
+                                    <div class="w-1.5 h-1.5 bg-violet-400 rounded-full animate-pulse delay-75"></div>
+                                    <div class="w-1.5 h-1.5 bg-violet-400 rounded-full animate-pulse delay-150"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Layer -->
+                        <div class="absolute w-72 h-40 md:w-96 md:h-52 liquid-glass border-blue-500/50 rounded-3xl flex items-center justify-center transform rotate-x-[30deg] -rotate-z-[10deg] animate-float-medium shadow-2xl z-20 group hover:border-blue-400 transition-all">
+                            <div class="text-center transform rotate-z-[10deg] rotate-x-[30deg]">
+                                <div class="text-[8px] font-black uppercase tracking-[0.5em] mb-3 opacity-40">Layer 02</div>
+                                <h4 class="text-sm md:text-lg font-black uppercase tracking-widest italic">Pure Code Architecture</h4>
+                                <p class="text-[8px] mt-4 opacity-40 font-mono tracking-tighter bg-blue-500/10 px-4 py-2 rounded-full">optimize_performance(0.2ms)</p>
+                            </div>
+                        </div>
+
+                        <!-- Security Layer -->
+                        <div class="absolute w-72 h-40 md:w-96 md:h-52 liquid-glass border-white/20 rounded-3xl flex items-center justify-center transform translate-y-24 rotate-x-[30deg] -rotate-z-[10deg] animate-float-fast shadow-2xl z-10 group hover:border-white transition-all">
+                            <div class="text-center transform rotate-z-[10deg] rotate-x-[30deg]">
+                                <div class="text-[8px] font-black uppercase tracking-[0.5em] mb-3 opacity-40">Layer 01</div>
+                                <h4 class="text-sm md:text-lg font-black uppercase tracking-widest italic">Security Foundation</h4>
+                                <div class="mt-4 flex items-center justify-center space-x-3 text-[10px] text-green-500 font-black tracking-widest">
+                                    <span class="animate-pulse">●</span>
+                                    <span>ENCRYPTED SSL</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vertical Connection Line -->
+                        <div class="absolute w-[1px] h-full bg-gradient-to-b from-violet-500 via-blue-500 to-transparent opacity-20 -z-10"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Terminal Mockup -->
-            <div class="liquid-glass p-1 overflow-hidden reveal">
-                <div class="bg-[#0a0a0a] rounded-[30px] overflow-hidden">
-                    <div class="px-8 py-4 border-b border-white/5 flex items-center justify-between">
-                        <div class="flex space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-white/10"></div>
-                            <div class="w-2 h-2 rounded-full bg-white/10"></div>
-                            <div class="w-2 h-2 rounded-full bg-white/10"></div>
-                        </div>
-                        <span class="text-[8px] font-heading font-black uppercase tracking-[0.4em] text-white/90 italic">#CUSTOM-ENGINEERING :: devd-arch-studio</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-16">
+                <div class="reveal group">
+                    <div class="w-12 h-12 rounded-2xl bg-violet-600/20 flex items-center justify-center mb-8 border border-violet-500/30">
+                        <span class="text-violet-400 font-heading font-black">01</span>
                     </div>
-                    <div class="p-6 md:p-10 font-mono text-[10px] md:text-sm leading-loose text-white/40 h-[300px] md:h-[450px] overflow-x-auto whitespace-pre" id="terminal">
-// Building Modern Architecture...
-export default function HeroSection() {
-  return (
-    &lt;section className='relative h-screen bg-black'&gt;
-      &lt;div className='max-w-7xl mx-auto px-6'&gt;
-        &lt;h1 className='text-8xl font-black'&gt;
-          Precision Engineering
-        &lt;/h1&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
-  );
-}
-
-[BUILD SUCCESSFUL]
-&gt; Next.js core optimized
-&gt; Deployment ready for Vercel Edge</div>
+                    <h3 class="text-3xl font-heading font-black uppercase italic mb-6">Viteză Absolută</h3>
+                    <p class="text-[14px] text-white/70 leading-relaxed uppercase tracking-widest">Site-ul tău se încarcă instant. Clienții rămân, conversia crește.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Tech Stack & CMS -->
-        <section class="py-24 md:py-40 px-6 bg-white/[0.01] border-y border-white/5">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                    <div class="reveal">
-                        <h2 class="text-4xl md:text-6xl font-heading font-black uppercase italic mb-10 leading-tight">
-                            Tehnologie de <br> <span class="text-white text-glow">Nivel Mondial.</span>
-                        </h2>
-                        <p class="text-white text-lg font-light leading-relaxed mb-12">
-                            Folosim aceleași instrumente ca giganții tech (Airbnb, Nike, Uber) pentru a-ți oferi un avantaj competitiv real. Obții un site care nu doar arată premium, ci este construit să reziste și să performeze la standarde globale.
-                        </p>
-                        <div class="flex flex-wrap gap-6 md:gap-8 opacity-20 filter grayscale">
-                            <span class="text-xs md:text-sm font-heading font-black tracking-widest">Next.js</span>
-                            <span class="text-xs md:text-sm font-heading font-black tracking-widest">Tailwind CSS</span>
-                            <span class="text-xs md:text-sm font-heading font-black tracking-widest">GSAP</span>
-                            <span class="text-xs md:text-sm font-heading font-black tracking-widest">Sanity CMS</span>
-                            <span class="text-xs md:text-sm font-heading font-black tracking-widest">Vercel</span>
-                        </div>
+                <div class="reveal group">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-600/20 flex items-center justify-center mb-8 border border-blue-500/30">
+                        <span class="text-blue-400 font-heading font-black">02</span>
                     </div>
-
-                    <div class="liquid-glass p-8 md:p-16 reveal relative">
-                        <div class="absolute -top-4 -right-4 bg-white text-black px-4 py-2 font-heading font-black text-[8px] uppercase tracking-widest italic shadow-2xl">Dashboard Activ</div>
-                        <h3 class="text-3xl font-heading font-black uppercase italic mb-6">Control Total <br> în 10 Secunde.</h3>
-                        <p class="text-white text-sm leading-loose mb-10">
-                            Administrezi site-ul la fel de ușor ca o postare pe rețelele sociale. Modifici prețuri, servicii sau imagini instantaneu, direct de pe telefon, fără să mai depinzi de un programator.
-                        </p>
-                        <div class="p-6 border border-white/10 rounded-2xl flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                            <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center">
-                                <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                            </div>
-                            <div class="flex-1 text-center sm:text-left">
-                                <div class="h-2 w-24 bg-white/20 rounded-full mb-2 mx-auto sm:mx-0"></div>
-                                <div class="h-2 w-48 bg-white/5 rounded-full mx-auto sm:mx-0"></div>
-                            </div>
-                            <div class="px-4 py-2 border border-white/20 text-[8px] font-heading font-black uppercase tracking-widest italic opacity-40">Publish</div>
-                        </div>
-                    </div>
+                    <h3 class="text-3xl font-heading font-black uppercase italic mb-6">Zero Abonamente</h3>
+                    <p class="text-[14px] text-white/70 leading-relaxed uppercase tracking-widest">Investiție unică. Proprietate deplină. Fără taxe lunare mascate.</p>
                 </div>
             </div>
         </section>
@@ -352,162 +298,90 @@ export default function HeroSection() {
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 lg:gap-2 mb-32">
-                <!-- Starter -->
-                <div class="liquid-glass p-8 md:p-12 reveal group">
-                    <div class="text-white text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Site de Prezentare</div>
-                    <div class="text-6xl font-heading font-black mb-16 italic text-white">€300</div>
-                    <p class="text-[10px] text-white uppercase tracking-widest font-black mb-12">Lansare rapidă (One-Page). Ideal pentru prezență locală.</p>
-                    <ul class="space-y-6 text-[9px] uppercase font-black tracking-[0.2em] opacity-30 mb-16">
-                        <li>✓ Arhitectură One-Page</li>
-                        <li>✓ Design Unic (Fără Șabloane)</li>
-                        <li>✓ Viteză de Încărcare Instant</li>
-                        <li>✓ Mentenanță Tehnică €0</li>
-                    </ul>
-                    <a href="https://wa.me/40758462498" class="block w-full text-center py-6 border border-white/10 hover:border-white hover:text-white transition-all font-heading font-black uppercase text-[9px] italic tracking-[0.3em]">Alege Planul</a>
+                <!-- Essential -->
+                <div class="liquid-glass no-tilt p-8 md:p-12 group">
+                    <div class="text-white text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Essential</div>
+                    <div class="text-6xl font-heading font-black mb-16 italic text-white">€299</div>
+                    <p class="text-[12px] text-white uppercase tracking-widest font-black mb-12">Impact Imediat. Lansare Rapidă.</p>
+                    <div class="flex flex-col space-y-4">
+                        <button onclick="openDemo('essential')" class="w-full py-4 border border-white/10 hover:border-white text-[8px] font-heading font-black uppercase tracking-widest transition-all">Explorează Arhitectura</button>
+                        <a href="https://wa.me/40758462498" class="w-full py-4 btn-glass text-center text-[8px] font-heading font-black uppercase tracking-widest italic">Alege Planul</a>
+                    </div>
                 </div>
 
-                <!-- Business -->
-                <div class="liquid-glass p-8 md:p-12 text-white relative overflow-hidden reveal group z-20 rounded-3xl shadow-2xl">
-                    <div class="absolute top-0 right-0 bg-white text-black px-6 py-3 rounded-bl-2xl font-heading font-black text-[8px] uppercase italic tracking-[0.2em] z-30 shadow-2xl">BEST CHOICE</div>
-                    <div class="text-white text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Site Complet (Multi-Page)</div>
-                    <div class="text-6xl font-heading font-black mb-16 italic text-white">€450</div>
-                    <p class="text-[10px] text-white uppercase tracking-widest font-black mb-12">Soluția optimă pentru afaceri în expansiune.</p>
-                    <ul class="space-y-6 text-[9px] uppercase font-black tracking-[0.2em] mb-16 opacity-30">
-                        <li>✓ Structură Multi-Page (până la 6)</li>
-                        <li>✓ Panou de Control (Administrare)</li>
-                        <li>✓ Secțiuni Dinamice (Blog/Știri)</li>
-                        <li>✓ Animații Premium (Wow Factor)</li>
-                    </ul>
-                    <a href="https://wa.me/40758462498" class="block w-full text-center py-6 btn-glass font-heading font-black uppercase text-[9px] italic tracking-[0.3em] hover:scale-[1.03] transition-transform">Solicită Consultanță Gratuită</a>
+                <!-- Bespoke -->
+                <div class="liquid-glass no-tilt p-8 md:p-12 text-white relative group z-20 shadow-2xl bg-white/[0.02]">
+                    <div class="absolute top-0 right-0 bg-white text-black px-6 py-3 rounded-bl-2xl font-heading font-black text-[8px] uppercase italic tracking-[0.2em] z-30 shadow-2xl italic">RECOMANDAT</div>
+                    <div class="text-white text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Bespoke</div>
+                    <div class="text-6xl font-heading font-black mb-16 italic text-white">€449</div>
+                    <p class="text-[12px] text-white uppercase tracking-widest font-black mb-12">Control Total. Design de Elită.</p>
+                    <div class="flex flex-col space-y-4">
+                        <button onclick="openDemo('bespoke')" class="w-full py-4 border border-white/10 hover:border-white text-[8px] font-heading font-black uppercase tracking-widest transition-all">Explorează Arhitectura</button>
+                        <a href="https://wa.me/40758462498" class="w-full py-4 btn-glass text-center text-[8px] font-heading font-black uppercase tracking-widest italic">Alege Planul</a>
+                    </div>
                 </div>
 
                 <!-- Elite -->
-                <div class="liquid-glass p-8 md:p-12 reveal group">
-                    <div class="text-white text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Aplicație & E-Commerce</div>
-                    <div class="text-6xl font-heading font-black mb-16 italic text-white">€800</div>
-                    <p class="text-[10px] text-white uppercase tracking-widest font-black mb-12">Soluții avansate și magazine online de elită.</p>
-                    <ul class="space-y-6 text-[9px] uppercase font-black tracking-[0.2em] opacity-30 mb-16">
-                        <li>✓ Magazin Online / Aplicație</li>
-                        <li>✓ Integrări API & Plăți Online</li>
-                        <li>✓ Baze de Date & Securitate</li>
-                        <li>✓ Infrastructură Scalabilă</li>
-                    </ul>
-                    <a href="https://wa.me/40758462498" class="block w-full text-center py-6 border border-white/10 hover:border-white hover:text-white transition-all font-heading font-black uppercase text-[9px] italic tracking-[0.3em]">Discută cu Arhitectul</a>
+                <div class="liquid-glass no-tilt p-8 md:p-12 group">
+                    <div class="text-white text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-12 italic">Elite</div>
+                    <div class="text-6xl font-heading font-black mb-16 italic text-white">€799</div>
+                    <p class="text-[12px] text-white uppercase tracking-widest font-black mb-12">Performanță Extremă. Scalabilitate.</p>
+                    <div class="flex flex-col space-y-4">
+                        <button onclick="openDemo('elite')" class="w-full py-4 border border-white/10 hover:border-white text-[8px] font-heading font-black uppercase tracking-widest transition-all">Explorează Arhitectura</button>
+                        <a href="https://wa.me/40758462498" class="w-full py-4 btn-glass text-center text-[8px] font-heading font-black uppercase tracking-widest italic">Alege Planul</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Price Calculator -->
             <div class="max-w-4xl mx-auto liquid-glass p-8 md:p-20 reveal">
-                <h3 class="text-2xl md:text-3xl font-heading font-black uppercase italic mb-12 text-center">Configurează-ți <span class="text-white/90">Site-ul.</span></h3>
+                <h3 class="text-2xl md:text-3xl font-heading font-black uppercase italic mb-12 text-center">Configurator <span class="text-white/90">Premium.</span></h3>
                 
-                <div class="grid md:grid-cols-2 gap-12 md:gap-16">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="space-y-10">
-                        <div>
-                            <label class="block text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-6 opacity-40">1. Alege Pachetul</label>
                             <select id="calc-package" class="w-full bg-transparent border-b-2 border-white/10 py-4 font-heading font-black uppercase text-xs focus:border-white outline-none transition-colors">
-                                <option value="300" class="bg-black text-white">Lansare la Cheie (One-Page) (€300)</option>
-                                <option value="450" selected class="bg-black text-white">Motor de Creștere (Multi-Page) (€450)</option>
-                                <option value="800" class="bg-black text-white">Arhitectură Enterprise (App/E-com) (€800)</option>
+                                <option value="299" class="bg-black text-white">Essential (€299)</option>
+                                <option value="449" selected class="bg-black text-white">Bespoke (€449)</option>
+                                <option value="799" class="bg-black text-white">Elite (€799)</option>
                             </select>
-                        </div>
-                        <div>
-                            <label class="block text-[9px] font-heading font-black uppercase tracking-[0.4em] mb-6 opacity-40">2. Opțiuni Extra</label>
-                            
-                            <!-- Group: Impact & Viteza -->
-                            <div class="mb-10">
-                                <div class="text-[7px] font-heading font-black uppercase tracking-widest text-white/90 mb-6 italic">Impact & Viteză</div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <label class="flex items-start space-x-4 cursor-pointer group">
-                                        <input type="checkbox" class="calc-extra mt-1 w-5 h-5 accent-white" value="100">
-                                        <div class="flex flex-col">
-                                            <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white transition-colors">Lansare Urgentă (+€100)</span>
-                                            <span class="text-[8px] opacity-30 uppercase tracking-tighter mt-1">Gata de lansare în 48 de ore.</span>
-                                        </div>
-                                    </label>
-                                    <label class="flex items-start space-x-4 cursor-pointer group">
-                                        <input type="checkbox" class="calc-extra mt-1 w-5 h-5 accent-white" value="150">
-                                        <div class="flex flex-col">
-                                            <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white transition-colors">Animații Premium (+€150)</span>
-                                            <span class="text-[8px] opacity-30 uppercase tracking-tighter mt-1">Efecte vizuale avansate (Wow Factor).</span>
-                                        </div>
-                                    </label>
-                                    <label class="flex items-start space-x-4 cursor-pointer group">
-                                        <input type="checkbox" class="calc-extra mt-1 w-5 h-5 accent-white" value="100">
-                                        <div class="flex flex-col">
-                                            <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white transition-colors">Site Bilingv (+€100)</span>
-                                            <span class="text-[8px] opacity-30 uppercase tracking-tighter mt-1">Traducere și structură RO + EN.</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <!-- Group: Business & Support -->
-                            <div>
-                                <div class="text-[7px] font-heading font-black uppercase tracking-widest text-white/90 mb-6 italic">Business & Suport</div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <label class="flex items-start space-x-4 cursor-pointer group">
-                                        <input type="checkbox" class="calc-extra mt-1 w-5 h-5 accent-white" value="49">
-                                        <div class="flex flex-col">
-                                            <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white transition-colors">Texte Strategic (+€49)</span>
-                                            <span class="text-[8px] opacity-30 uppercase tracking-tighter mt-1">Copywriting axat pe conversie.</span>
-                                        </div>
-                                    </label>
-                                    <label class="flex items-start space-x-4 cursor-pointer group">
-                                        <input type="checkbox" class="calc-extra mt-1 w-5 h-5 accent-white" value="200">
-                                        <div class="flex flex-col">
-                                            <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white transition-colors">Dashboard Custom (+€200)</span>
-                                            <span class="text-[8px] opacity-30 uppercase tracking-tighter mt-1">Administrare creată de la zero.</span>
-                                        </div>
-                                    </label>
-                                    <label class="flex items-start space-x-4 cursor-pointer group">
-                                        <input type="checkbox" class="calc-extra mt-1 w-5 h-5 accent-white" value="100">
-                                        <div class="flex flex-col">
-                                            <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white transition-colors">Identitate Vizuală (+€100)</span>
-                                            <span class="text-[8px] opacity-30 uppercase tracking-tighter mt-1">Logo și manual de brand.</span>
-                                        </div>
-                                    </label>
-                                    <label class="flex items-start space-x-4 cursor-pointer group">
-                                        <input type="checkbox" class="calc-extra mt-1 w-5 h-5 accent-white" value="50">
-                                        <div class="flex flex-col">
-                                            <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white transition-colors">SEO & Indexare (+€50)</span>
-                                            <span class="text-[8px] opacity-30 uppercase tracking-tighter mt-1">Vizibilitate garantată în Google.</span>
-                                        </div>
-                                    </label>
-                                    <label class="flex items-start space-x-4 cursor-pointer group">
-                                        <input type="checkbox" class="calc-extra mt-1 w-5 h-5 accent-white" value="50">
-                                        <div class="flex flex-col">
-                                            <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white transition-colors">Suport Prioritar (+€50)</span>
-                                            <span class="text-[8px] opacity-30 uppercase tracking-tighter mt-1">Asistență rapidă timp de 30 zile.</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6">
+                            <label class="flex items-center space-x-4 cursor-pointer group">
+                                <input type="checkbox" class="calc-extra w-4 h-4 accent-white" value="150">
+                                <span class="text-[9px] font-heading font-black uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">Lansare 48h (+€150)</span>
+                            </label>
+                            <label class="flex items-center space-x-4 cursor-pointer group">
+                                <input type="checkbox" class="calc-extra w-4 h-4 accent-white" value="100">
+                                <span class="text-[9px] font-heading font-black uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">Design Ultra (+€100)</span>
+                            </label>
+                            <label class="flex items-center space-x-4 cursor-pointer group">
+                                <input type="checkbox" class="calc-extra w-4 h-4 accent-white" value="100">
+                                <span class="text-[9px] font-heading font-black uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">SEO & Indexare (+€100)</span>
+                            </label>
+                            <label class="flex items-center space-x-4 cursor-pointer group">
+                                <input type="checkbox" class="calc-extra w-4 h-4 accent-white" value="150">
+                                <span class="text-[9px] font-heading font-black uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">Motion Design (+€150)</span>
+                            </label>
+                            <label class="flex items-center space-x-4 cursor-pointer group">
+                                <input type="checkbox" class="calc-extra w-4 h-4 accent-white" value="199">
+                                <span class="text-[9px] font-heading font-black uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">CMS Dashboard (+€199)</span>
+                            </label>
+                            <label class="flex items-center space-x-4 cursor-pointer group">
+                                <input type="checkbox" class="calc-extra w-4 h-4 accent-white" value="100">
+                                <span class="text-[9px] font-heading font-black uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">Multi-Language (+€100)</span>
+                            </label>
                         </div>
                     </div>
 
-                    <div class="flex flex-col justify-between md:border-l border-white/5 md:pl-16 mt-12 md:mt-0">
-                        <div>
-                            <div class="text-[8px] font-heading font-black uppercase tracking-[0.4em] mb-2 opacity-30">Investiție Estimată</div>
-                            <div class="text-5xl md:text-7xl font-heading font-black italic">€<span id="total-price">450</span></div>
-                        </div>
-
-                        <a href="https://wa.me/40758462498" class="mt-8 md:mt-12 block w-full text-center py-6 btn-glass font-heading font-black uppercase text-[10px] italic tracking-[0.3em] hover:invert transition-all">Rezervă Consultanța</a>
+                    <div class="text-center md:text-right border-t md:border-t-0 md:border-l border-white/5 pt-12 md:pt-0 md:pl-16">
+                        <div class="text-[10px] font-heading font-black uppercase tracking-[0.5em] text-white/40 mb-4 italic">Investiție Estimată</div>
+                        <div class="text-7xl md:text-9xl font-heading font-black italic">€<span id="total-price">449</span></div>
+                        <a href="https://wa.me/40758462498" class="mt-12 block w-full text-center py-6 btn-glass font-heading font-black uppercase text-[10px] italic tracking-[0.3em]">Rezervă Consultanța</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Discount Notice -->
-            <div class="max-w-4xl mx-auto mt-24 text-center reveal">
-                <div class="inline-block p-1 rounded-3xl bg-gradient-to-r from-white/0 via-white/10 to-white/0">
-                    <div class="px-8 py-10 rounded-[22px] border border-white/5 bg-white/[0.02] backdrop-blur-xl">
-                        <div class="text-[10px] font-heading font-black text-white/40 uppercase tracking-[0.4em] mb-4">Ofertă Specială</div>
-                        <h4 class="text-xl md:text-3xl font-heading font-black text-white uppercase italic leading-tight">
-                            Dacă ne oferiți materialele necesare în termen de <span class="text-glow">48 de ore</span>, <br class="hidden md:block">
-                            vă facem un discount de <span class="text-white underline decoration-violet-500/50">30 de euro</span>.
-                        </h4>
-                    </div>
-                </div>
-            </div>
+
         </section>
 
         <!-- Team Section -->
@@ -587,6 +461,17 @@ export default function HeroSection() {
             </div>
         </footer>
     </main>
+
+    <!-- Demo Modal -->
+    <div id="demo-modal" class="fixed inset-0 z-[9999] hidden bg-black">
+        <div id="modal-content" class="w-full h-full relative z-10 opacity-0">
+            <!-- Content injected via JS -->
+        </div>
+        <button onclick="closeDemo()" class="fixed top-10 right-10 z-[10000] text-white/40 hover:text-white text-[10px] font-heading font-black uppercase tracking-widest transition-colors flex items-center space-x-4 bg-black/40 backdrop-blur-xl px-6 py-3 rounded-full border border-white/10">
+            <span>Închide Demo</span>
+            <span class="text-xl">×</span>
+        </button>
+    </div>
 
     <script src="js/app.js"></script>
 </body>

@@ -1,17 +1,17 @@
 :root {
-    --glass: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-    --glass-border: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-    --text-white: rgba(255, 255, 255, 0.9);
-    --white-glow: rgba(255, 255, 255, 0.05);
-    --violet-deep: #120d2b; 
-    --blue-deep: #0a1435;
+    --glass: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+    --glass-border: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+    --text-white: rgba(255, 255, 255, 0.95);
+    --white-glow: rgba(255, 255, 255, 0.1);
+    --violet-vibrant: #7c3aed; 
+    --blue-vibrant: #2563eb;
     --main-font: 'EB Garamond', serif;
 }
 
 body {
-    background: radial-gradient(circle at 0% 0%, var(--violet-deep) 0%, #000 80%),
-                radial-gradient(circle at 100% 100%, var(--blue-deep) 0%, #000 80%),
-                #000;
+    background: radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.1) 0%, #000 60%),
+                radial-gradient(circle at 90% 90%, rgba(37, 99, 235, 0.1) 0%, #000 60%),
+                #050505;
     color: #FFFFFF;
     margin: 0;
     padding: 0;
@@ -20,10 +20,9 @@ body {
     flex-direction: column;
     background-attachment: fixed;
     font-family: var(--main-font);
-    font-weight: 500; /* Increased weight for legibility */
+    font-weight: 500;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Stronger shadow */
 }
 
 main {
@@ -63,6 +62,10 @@ main {
     box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8);
 }
 
+.liquid-glass.no-tilt:hover {
+    transform: none;
+}
+
 /* Animated Background Blobs */
 .liquid-blob {
     position: fixed;
@@ -76,9 +79,9 @@ main {
     mix-blend-mode: screen;
 }
 
-#blob1 { background: radial-gradient(circle, #5b21b6 0%, transparent 70%); } /* Deep Violet */
-#blob2 { background: radial-gradient(circle, #1e40af 0%, transparent 70%); } /* Deep Blue */
-#blob3 { background: radial-gradient(circle, #701a75 0%, transparent 70%); } /* Magenta */
+#blob1 { background: radial-gradient(circle, var(--violet-vibrant) 0%, transparent 70%); opacity: 0.35; } 
+#blob2 { background: radial-gradient(circle, var(--blue-vibrant) 0%, transparent 70%); opacity: 0.35; } 
+#blob3 { background: radial-gradient(circle, #db2777 0%, transparent 70%); opacity: 0.25; } 
 
 /* Noise Overlay - The Secret for Realism */
 .noise-bg {
@@ -218,9 +221,22 @@ input[type="checkbox"]:checked::after {
 }
 
 /* Loader Animations */
-@keyframes loader-progress {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+@keyframes float-layer {
+    0% { transform: translateY(var(--base-y)) rotateX(var(--rot-x)) rotateZ(var(--rot-z)); }
+    100% { transform: translateY(calc(var(--base-y) - 20px)) rotateX(var(--rot-x)) rotateZ(var(--rot-z)); }
+}
+
+.animate-float-slow { 
+    --base-y: -96px; --rot-x: 30deg; --rot-z: -10deg;
+    animation: float-layer 4s ease-in-out infinite alternate; 
+}
+.animate-float-medium { 
+    --base-y: 0px; --rot-x: 30deg; --rot-z: -10deg;
+    animation: float-layer 3s ease-in-out infinite alternate 0.5s; 
+}
+.animate-float-fast { 
+    --base-y: 96px; --rot-x: 30deg; --rot-z: -10deg;
+    animation: float-layer 2.5s ease-in-out infinite alternate 1s; 
 }
 
 .animate-loader-progress {

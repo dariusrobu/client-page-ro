@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. 3D Glass Tilt Logic
     const initTiltEffect = () => {
-        document.querySelectorAll('.liquid-glass').forEach(card => {
+        document.querySelectorAll('.liquid-glass:not(.no-tilt)').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -134,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let sum = parseInt(pkg.value);
             xtras.forEach(x => { if(x.checked) sum += parseInt(x.value); });
             
-            // Animation for total price change
             gsap.to(total, {
                 textContent: sum,
                 duration: 0.6,
@@ -147,11 +146,65 @@ document.addEventListener('DOMContentLoaded', () => {
         xtras.forEach(x => x.addEventListener('change', updatePrice));
     };
 
-    // 8. Entrance Timeline (Triggered after loader)
+    // 8. Demo Modal Logic
+    const demoData = {
+        essential: {
+            title: "Arhitectura Essential",
+            desc: "Lansare rapidă. Impact imediat. Ideal pentru prezență locală sau portofolii personale.",
+            features: ["Design One-Page Scroll", "Performanță Brută (100/100)", "Zero Mentenanță", "Mobile-First Design", "Optimizare SEO de Bază"],
+            demo: "Structură: Hero -> Despre -> Servicii -> Contact"
+        },
+        bespoke: {
+            title: "Arhitectura Bespoke",
+            desc: "Control total. Design de elită. Soluția optimă pentru afaceri în plină expansiune.",
+            features: ["Structură Multi-Page (până la 6)", "Panou de Administrare Custom", "Strategie Copywriting", "Animații Premium GSAP", "Integrări Social Media"],
+            demo: "Structură: Multi-Section + Blog + Dashboard Administrare"
+        },
+        elite: {
+            title: "Arhitectura Elite",
+            desc: "Performanță extremă. Scalabilitate. Soluții complexe pentru viziuni mari.",
+            features: ["Aplicație Web / E-Commerce", "Bază de Date Avansată", "Integrări API & Plăți", "Branding & Logo Design", "Suport Prioritar 30 zile"],
+            demo: "Structură: Arhitectură Cloud + Magazin / Platformă Personalizată"
+        }
+    };
+
+    window.openDemo = (id) => {
+        const modal = document.getElementById('demo-modal');
+        const content = document.getElementById('modal-content');
+
+        if (!modal || !content) return;
+
+        // Reset content and inject truly fullscreen iframe
+        content.innerHTML = `
+            <div class="fixed inset-0 w-full h-full bg-black">
+                <iframe src="demos/${id}.html" class="w-full h-full border-none" id="demo-iframe"></iframe>
+            </div>
+            <div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-50">
+                <a href="https://wa.me/40758462498" class="btn-glass px-10 py-5 text-[10px] font-heading font-black uppercase tracking-[0.4em] italic shadow-2xl">Rezervă Acest Plan</a>
+            </div>
+        `;
+
+        // Update modal container classes for fullscreen
+        content.className = "w-full h-full relative z-10 opacity-0";
+        
+        modal.classList.remove('hidden');
+        gsap.to(content, { opacity: 1, duration: 0.8, ease: "power2.out" });
+        lenis.stop(); 
+    };
+
+    window.closeDemo = () => {
+        const modal = document.getElementById('demo-modal');
+        const content = document.getElementById('modal-content');
+
+        gsap.to(content, { opacity: 0, y: 50, duration: 0.5, ease: "power2.in", onComplete: () => {
+            modal.classList.add('hidden');
+            lenis.start();
+        }});
+    };
+
+    // 9. Entrance Timeline (Triggered after loader)
     const startHeroEntrance = () => {
         const tl = gsap.timeline();
-        
-        // Target specifically the hero content to avoid affecting the Nav
         const heroTitle = document.querySelector('#viziune h1');
         const heroText = document.querySelector('#viziune p');
         const heroBtns = document.querySelectorAll('#viziune .btn-glass');
@@ -161,27 +214,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if(heroBtns.length > 0) tl.from(heroBtns, { scale: 0.9, opacity: 0, duration: 0.8, ease: "back.out(1.7)", stagger: 0.1, clearProps: "all" }, "-=0.7");
     };
 
-    // 9. Loader Logic
+    // 10. Loader Logic
     const hideLoader = () => {
         const loader = document.getElementById('loader');
         if (loader) {
             setTimeout(() => {
                 loader.style.transform = 'translateY(-100%)';
-                
-                // Fire animations
                 startHeroEntrance();
-                
-                // Failsafe: Ensure buttons are visible even if GSAP fails
                 setTimeout(() => {
                     document.querySelectorAll('.btn-glass').forEach(b => b.style.opacity = "1");
                 }, 2000);
-
                 setTimeout(() => {
                     loader.style.display = 'none';
                 }, 1000);
             }, 800);
         } else {
-            // If no loader, just show everything
             startHeroEntrance();
         }
     };
@@ -193,7 +240,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Execute All
-    // animateBlobs();
     initScrollNav();
     initCalculator();
+    initMagneticButtons();
+    initTiltEffect();
+    initScrollReveals();
 });
