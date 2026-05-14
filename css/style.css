@@ -1,15 +1,15 @@
 :root {
-    --glass: rgba(15, 10, 31, 0.4);
-    --glass-border: rgba(139, 92, 246, 0.2);
-    --white-glow: rgba(139, 92, 246, 0.15);
-    --violet-deep: #1e1b4b; /* Indigo 950 */
-    --purple-dark: #4c1d95; /* Violet 950 */
-    --blue-deep: #172554;   /* Blue 950 */
+    --glass: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    --glass-border: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    --white-glow: rgba(255, 255, 255, 0.05);
+    --violet-deep: #120d2b; 
+    --blue-deep: #0a1435;
+    --main-font: 'EB Garamond', serif;
 }
 
 body {
-    background: radial-gradient(circle at 0% 0%, var(--violet-deep) 0%, #000 50%),
-                radial-gradient(circle at 100% 100%, var(--blue-deep) 0%, #000 50%),
+    background: radial-gradient(circle at 0% 0%, var(--violet-deep) 0%, #000 70%),
+                radial-gradient(circle at 100% 100%, var(--blue-deep) 0%, #000 70%),
                 #000;
     color: #F5F5F7;
     margin: 0;
@@ -18,61 +18,66 @@ body {
     display: flex;
     flex-direction: column;
     background-attachment: fixed;
+    font-family: var(--main-font);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 main {
     flex: 1;
+    position: relative;
+    z-index: 2;
 }
 
-/* Liquid Glass Effect */
+/* Apple Liquid Glass Card */
 .liquid-glass {
     background: var(--glass);
-    backdrop-filter: blur(40px) saturate(150%);
-    -webkit-backdrop-filter: blur(40px) saturate(150%);
-    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(50px) saturate(200%);
+    -webkit-backdrop-filter: blur(50px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 32px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal {
-    opacity: 1 !important;
-    transform: none !important;
+/* Subtle inner sheen */
+.liquid-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.liquid-glass:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8);
 }
 
 /* Animated Background Blobs */
 .liquid-blob {
     position: fixed;
-    width: 60vw;
-    height: 60vw;
+    width: 70vw;
+    height: 70vw;
     border-radius: 50%;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.5;
-    filter: blur(120px);
+    opacity: 0.4;
+    filter: blur(140px);
+    mix-blend-mode: screen;
 }
 
-#blob1 { background: radial-gradient(circle, #7c3aed 0%, transparent 70%); } /* Violet */
-#blob2 { background: radial-gradient(circle, #2563eb 0%, transparent 70%); } /* Blue */
-#blob3 { background: radial-gradient(circle, #db2777 0%, transparent 70%); } /* Pink/Purple */
+#blob1 { background: radial-gradient(circle, #5b21b6 0%, transparent 70%); } /* Deep Violet */
+#blob2 { background: radial-gradient(circle, #1e40af 0%, transparent 70%); } /* Deep Blue */
+#blob3 { background: radial-gradient(circle, #701a75 0%, transparent 70%); } /* Magenta */
 
-/* Typography Enhancements */
-.text-glow {
-    text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
-}
-
-.heading-xl {
-    letter-spacing: -0.06em;
-}
-
-/* Navigation */
-.phantom-nav-glass {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    z-index: 100;
-}
-
-/* Noise Texture Overlay */
+/* Noise Overlay - The Secret for Realism */
 .noise-bg {
     position: fixed;
     top: 0;
@@ -80,27 +85,163 @@ main {
     width: 100%;
     height: 100%;
     background: url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity: 0.05;
+    opacity: 0.08;
     pointer-events: none;
-    z-index: 1; /* Move behind main content but above blobs */
+    z-index: 1;
+    contrast: 150%;
+    brightness: 100%;
+}
+
+/* Typography */
+.text-glow {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.heading-xl {
+    letter-spacing: -0.05em;
+    font-weight: 800;
+}
+
+/* Glass Navigation */
+.phantom-nav-glass {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 100;
+}
+
+/* Form Elements Refinement */
+select {
+    background: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: white !important;
+    padding: 1rem;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type="checkbox"]:checked {
+    background: white;
+    border-color: white;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+/* Glass Button with Sheen */
+.btn-glass {
+    position: relative;
+    overflow: hidden;
+    background: white;
+    color: black;
+    transition: all 0.5s ease;
+}
+
+.btn-glass::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.7s ease;
+    pointer-events: none;
+}
+
+.btn-glass:hover::after {
+    left: 120%;
+    top: 120%;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar { 
-    width: 3px; 
+    width: 4px; 
 }
 ::-webkit-scrollbar-track { 
     background: #000; 
 }
 ::-webkit-scrollbar-thumb { 
-    background: #FFF; 
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
 }
 
 /* Helper Classes */
-.monochrome-border {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.reveal {
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.monochrome-border:hover {
-    border-color: rgba(255, 255, 255, 1);
+.hover-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+.hover-lift:hover {
+    transform: translateY(-2px);
+}
+
+/* Loader Animations */
+@keyframes loader-progress {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.animate-loader-progress {
+    animation: loader-progress 3s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+
+.reveal-logo {
+    animation: reveal-logo 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes reveal-logo {
+    0% {
+        opacity: 0;
+        letter-spacing: -0.5em;
+        filter: blur(12px);
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        letter-spacing: -0.1em;
+        filter: blur(0);
+        transform: scale(1);
+    }
+}
+
+
+

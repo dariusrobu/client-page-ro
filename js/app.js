@@ -129,35 +129,49 @@ document.addEventListener('DOMContentLoaded', () => {
         xtras.forEach(x => x.addEventListener('change', updatePrice));
     };
 
-    // 6. Mobile Menu Logic
-    const initMobileMenu = () => {
-        const toggle = document.getElementById('menu-toggle');
-        const close = document.getElementById('menu-close');
-        const menu = document.getElementById('mobile-menu');
-        const links = document.querySelectorAll('.mobile-link');
+    // 6. Scroll-Based Navigation Logic (Hide on Scroll Down, Show on Scroll Up)
+    const initScrollNav = () => {
+        const nav = document.getElementById('main-nav');
+        if (!nav) return;
 
-        if (!toggle || !menu) return;
-
-        const openMenu = () => {
-            menu.classList.remove('translate-x-full');
-            document.body.style.overflow = 'hidden';
-        };
-
-        const closeMenu = () => {
-            menu.classList.add('translate-x-full');
-            document.body.style.overflow = '';
-        };
-
-        toggle.addEventListener('click', openMenu);
-        if (close) close.addEventListener('click', closeMenu);
-        links.forEach(l => l.addEventListener('click', closeMenu));
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling Down
+                nav.style.transform = 'translate( -50%, -150% )';
+            } else {
+                // Scrolling Up
+                nav.style.transform = 'translate( -50%, 0 )';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
     };
+
+    // 7. Loader Removal Logic (Optimized)
+    const hideLoader = () => {
+        const loader = document.getElementById('loader');
+        if (loader) {
+            setTimeout(() => {
+                loader.style.transform = 'translateY(-100%)';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 1000);
+            }, 800);
+        }
+    };
+
+    if (document.readyState === 'complete') {
+        hideLoader();
+    } else {
+        window.addEventListener('load', hideLoader);
+    }
 
     // Execute All
     // animateBlobs();
-    // initReveals();
-    // initTiltEffect();
-    // initTerminal();
+    initScrollNav();
     initCalculator();
-    initMobileMenu();
 });

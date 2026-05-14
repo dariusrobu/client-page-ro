@@ -10,10 +10,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Animation Libraries (GSAP) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <!-- Tailwind Config -->
     <script>
@@ -27,8 +31,8 @@
                         silver: '#E5E5E5',
                     },
                     fontFamily: {
-                        heading: ['Montserrat', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
+                        heading: ['EB Garamond', 'serif'],
+                        body: ['EB Garamond', 'serif'],
                     },
                 }
             }
@@ -37,6 +41,33 @@
 </head>
 
 <body class="font-body antialiased selection:bg-white selection:text-black">
+    <!-- Premium Loader -->
+    <div id="loader" class="fixed inset-0 z-[9999] bg-black flex items-center justify-center transition-all duration-1000 ease-[cubic-bezier(0.85,0,0.15,1)]">
+        <!-- Loader Background -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="liquid-blob opacity-30" style="top: -10%; left: -10%; background: radial-gradient(circle, #5b21b6 0%, transparent 70%);"></div>
+            <div class="liquid-blob opacity-30" style="bottom: -10%; right: -10%; background: radial-gradient(circle, #1e40af 0%, transparent 70%);"></div>
+            <div class="noise-bg opacity-20"></div>
+        </div>
+
+        <div class="relative liquid-glass p-16 md:p-24 border border-white/10 flex flex-col items-center backdrop-blur-3xl">
+            <!-- Corner Markers -->
+            <div class="absolute -top-6 -left-6 w-6 h-6 border-t-2 border-l-2 border-white/20"></div>
+            <div class="absolute -top-6 -right-6 w-6 h-6 border-t-2 border-r-2 border-white/20"></div>
+            <div class="absolute -bottom-6 -left-6 w-6 h-6 border-b-2 border-l-2 border-white/20"></div>
+            <div class="absolute -bottom-6 -right-6 w-6 h-6 border-b-2 border-r-2 border-white/20"></div>
+
+            <div class="text-white font-heading font-black text-4xl md:text-7xl tracking-[-0.1em] italic mb-8 reveal-logo z-10">&lt;DevD&gt;</div>
+            
+            <div class="flex flex-col items-center z-10">
+                <div class="w-48 h-[1px] bg-white/10 relative overflow-hidden mb-6">
+                    <div class="absolute inset-0 bg-white w-full -translate-x-full animate-loader-progress"></div>
+                </div>
+                <div class="text-[8px] font-heading font-black text-white/30 uppercase tracking-[0.8em] animate-pulse">Establishing Architecture</div>
+            </div>
+        </div>
+    </div>
+
     <div class="noise-bg"></div>
 
     <!-- Liquid Background Blobs -->
@@ -45,42 +76,14 @@
     <div class="liquid-blob" id="blob3" style="bottom: -10%; left: 20%;"></div>
 
     <!-- Phantom Nav Glass -->
-    <nav class="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-[100] w-[95%] md:w-[90%] max-w-6xl">
-        <div class="phantom-nav-glass px-5 md:px-8 py-3 md:py-4 rounded-full flex justify-between items-center relative">
-            <div class="text-white font-heading font-black text-2xl tracking-tighter italic">&lt;DevD&gt;</div>
-            <div class="hidden md:flex space-x-8 text-[9px] font-heading font-black uppercase tracking-[0.4em] text-white/30">
-                <a href="#viziune" class="hover:text-white transition-colors">Viziune</a>
-                <a href="#custom" class="hover:text-white transition-colors">Arhitectură</a>
-                <a href="#comparatie" class="hover:text-white transition-colors">vs WordPress</a>
-                <a href="#preturi" class="hover:text-white transition-colors">Pachete</a>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="https://wa.me/40758462498" class="hidden sm:block bg-white text-black px-6 py-2 rounded-full font-heading font-black text-[9px] uppercase tracking-widest hover:invert transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-                    WhatsApp
-                </a>
-                
-                <!-- Hamburger Button -->
-                <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+    <nav id="main-nav" class="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-[100] w-[95%] md:w-[90%] max-w-6xl transition-transform duration-500">
+        <div class="phantom-nav-glass px-6 md:px-10 py-3 md:py-4 rounded-full flex justify-between items-center">
+            <div class="text-white font-heading font-black text-xl md:text-2xl tracking-tighter italic">&lt;DevD&gt;</div>
+            <a href="https://wa.me/40758462498" class="btn-glass px-6 md:px-8 py-2 md:py-3 rounded-full font-heading font-black text-[9px] md:text-[10px] uppercase tracking-widest hover:invert transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                Contactează Arhitectul
+            </a>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 z-[200] bg-black translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] flex flex-col items-center justify-center space-y-10">
-            <button id="menu-close" class="absolute top-10 right-10 text-white p-4">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-            <a href="#viziune" class="mobile-link text-4xl font-heading font-black uppercase italic text-white/20 hover:text-white transition-all">Viziune</a>
-            <a href="#custom" class="mobile-link text-4xl font-heading font-black uppercase italic text-white/20 hover:text-white transition-all">Arhitectură</a>
-            <a href="#comparatie" class="mobile-link text-4xl font-heading font-black uppercase italic text-white/20 hover:text-white transition-all">vs WordPress</a>
-            <a href="#preturi" class="mobile-link text-4xl font-heading font-black uppercase italic text-white/20 hover:text-white transition-all">Pachete</a>
-            <a href="https://wa.me/40758462498" class="mt-10 px-10 py-5 bg-white text-black font-heading font-black uppercase text-xs tracking-widest italic">WhatsApp</a>
-        </div>
+    </nav>
     </nav>
 
     <!-- Main Content -->
@@ -101,7 +104,7 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row justify-center gap-6 mb-24 reveal">
-                    <a href="#custom" class="px-8 sm:px-10 py-5 bg-white text-black font-heading font-black uppercase text-[10px] tracking-[0.3em] hover:bg-offwhite transition-all italic">Descoperă Soluția</a>
+                    <a href="#custom" class="px-8 sm:px-10 py-5 btn-glass font-heading font-black uppercase text-[10px] tracking-[0.3em] hover:bg-offwhite transition-all italic">Descoperă Soluția</a>
                     <div class="flex items-center space-x-4 px-6 sm:px-8 py-5 border border-white/5 rounded-sm justify-center">
                         <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                         <span class="text-[9px] font-heading font-black uppercase tracking-[0.3em] text-white/30">Suport Local în Cluj-Napoca</span>
@@ -281,7 +284,7 @@ export default function HeroSection() {
                             Explorează Proiectele <br> <span class="text-white/20 italic">Noastre Recente.</span>
                         </h3>
                         
-                        <a href="https://react-portfolio-sable-three.vercel.app/" target="_blank" class="px-12 py-6 bg-white text-black font-heading font-black uppercase text-[11px] tracking-[0.4em] italic hover:scale-105 transition-all shadow-2xl relative z-10">
+                        <a href="https://react-portfolio-sable-three.vercel.app/" target="_blank" class="px-12 py-6 btn-glass font-heading font-black uppercase text-[11px] tracking-[0.4em] italic hover:scale-105 transition-all shadow-2xl relative z-10">
                             Vezi Portofoliul Complet
                         </a>
 
@@ -378,7 +381,7 @@ export default function HeroSection() {
                         <li>✓ Secțiuni Dinamice (Blog/Știri)</li>
                         <li>✓ Animații Premium (Wow Factor)</li>
                     </ul>
-                    <a href="https://wa.me/40758462498" class="block w-full text-center py-6 bg-white text-black font-heading font-black uppercase text-[9px] italic tracking-[0.3em] hover:scale-[1.03] transition-transform">Începe Proiectul</a>
+                    <a href="https://wa.me/40758462498" class="block w-full text-center py-6 btn-glass font-heading font-black uppercase text-[9px] italic tracking-[0.3em] hover:scale-[1.03] transition-transform">Începe Proiectul</a>
                 </div>
 
                 <!-- Elite -->
@@ -491,7 +494,7 @@ export default function HeroSection() {
                             <div class="text-5xl md:text-7xl font-heading font-black italic">€<span id="total-price">450</span></div>
                         </div>
 
-                        <a href="https://wa.me/40758462498" class="mt-8 md:mt-12 block w-full text-center py-6 bg-white text-black font-heading font-black uppercase text-[10px] italic tracking-[0.3em] hover:invert transition-all">Vreau Oferta</a>
+                        <a href="https://wa.me/40758462498" class="mt-8 md:mt-12 block w-full text-center py-6 btn-glass font-heading font-black uppercase text-[10px] italic tracking-[0.3em] hover:invert transition-all">Vreau Oferta</a>
                     </div>
                 </div>
             </div>
