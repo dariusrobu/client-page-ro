@@ -1,0 +1,97 @@
+:root {
+    --glass: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --white-glow: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    background-color: #000000;
+    color: #F5F5F7;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Liquid Glass Effect */
+.liquid-glass {
+    background: var(--glass);
+    backdrop-filter: blur(40px) saturate(100%);
+    -webkit-backdrop-filter: blur(40px) saturate(100%);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Animated Background Blobs */
+.liquid-blob {
+    position: fixed;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, var(--white-glow) 0%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(120px);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/* Typography Enhancements */
+.text-glow {
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.heading-xl {
+    letter-spacing: -0.06em;
+}
+
+/* Navigation */
+.phantom-nav-glass {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 100;
+}
+
+/* Noise Texture Overlay */
+.noise-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 1; /* Move behind main content but above blobs */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { 
+    width: 3px; 
+}
+::-webkit-scrollbar-track { 
+    background: #000; 
+}
+::-webkit-scrollbar-thumb { 
+    background: #FFF; 
+}
+
+/* Helper Classes */
+.monochrome-border {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.monochrome-border:hover {
+    border-color: rgba(255, 255, 255, 1);
+}
