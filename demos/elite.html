@@ -91,19 +91,19 @@
         <!-- Feature Grid with Hover Spectacle -->
         <section class="py-60 px-6 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-3 gap-10">
-                <div class="liquid-glass p-16 rounded-[60px] reveal hover:scale-105 transition-all duration-700 group cursor-pointer overflow-hidden relative">
+                <div class="liquid-glass p-10 md:p-16 rounded-[40px] md:rounded-[60px] reveal hover:scale-105 transition-all duration-700 group cursor-pointer overflow-hidden relative">
                     <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="text-5xl font-black italic opacity-10 mb-8 italic group-hover:opacity-100 transition-opacity">01</div>
                     <h4 class="text-xl font-black uppercase tracking-[0.3em] mb-6 italic">Enterprise E-com</h4>
                     <p class="text-xs opacity-40 leading-relaxed uppercase tracking-widest">Sisteme de tranzacționare complexe, securizate prin protocol bancar.</p>
                 </div>
-                <div class="liquid-glass p-16 rounded-[60px] reveal hover:scale-105 transition-all duration-700 group cursor-pointer overflow-hidden relative mt-12 md:mt-24">
+                <div class="liquid-glass p-10 md:p-16 rounded-[40px] md:rounded-[60px] reveal hover:scale-105 transition-all duration-700 group cursor-pointer overflow-hidden relative mt-8 md:mt-24">
                     <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="text-5xl font-black italic opacity-10 mb-8 italic group-hover:opacity-100 transition-opacity">02</div>
                     <h4 class="text-xl font-black uppercase tracking-[0.3em] mb-6 italic">API Mastery</h4>
                     <p class="text-xs opacity-40 leading-relaxed uppercase tracking-widest">Conectivitate nelimitată cu orice ecosistem digital existent.</p>
                 </div>
-                <div class="liquid-glass p-16 rounded-[60px] reveal hover:scale-105 transition-all duration-700 group cursor-pointer overflow-hidden relative mt-12 md:mt-48">
+                <div class="liquid-glass p-10 md:p-16 rounded-[40px] md:rounded-[60px] reveal hover:scale-105 transition-all duration-700 group cursor-pointer overflow-hidden relative mt-8 md:mt-48">
                     <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="text-5xl font-black italic opacity-10 mb-8 italic group-hover:opacity-100 transition-opacity">03</div>
                     <h4 class="text-xl font-black uppercase tracking-[0.3em] mb-6 italic">Elite Support</h4>
@@ -147,22 +147,24 @@
             });
         }
 
-        // Perspective Parallax
-        gsap.to("#hero-sec", {
-            scrollTrigger: { trigger: "#hero-sec", start: "top top", end: "bottom top", scrub: true },
-            rotateX: 45, y: -200, opacity: 0
-        });
+        // Perspective Parallax - Desktop Only
+        if (window.innerWidth >= 768) {
+            gsap.to("#hero-sec", {
+                scrollTrigger: { trigger: "#hero-sec", start: "top top", end: "bottom top", scrub: true },
+                rotateX: 45, y: -200, opacity: 0
+            });
 
-        gsap.from("#data-sec", {
-            scrollTrigger: { trigger: "#data-sec", start: "top bottom", end: "top center", scrub: true },
-            rotateX: -45, y: 200, opacity: 0
-        });
+            gsap.from("#data-sec", {
+                scrollTrigger: { trigger: "#data-sec", start: "top bottom", end: "top center", scrub: true },
+                rotateX: -45, y: 200, opacity: 0
+            });
+        }
 
         // Reveal
         gsap.utils.toArray(".reveal").forEach(el => {
             gsap.from(el, {
                 scrollTrigger: { trigger: el, start: "top 95%" },
-                y: 100, opacity: 0, duration: 2, ease: "power4.out"
+                y: 50, opacity: 0, duration: 1.5, ease: "power4.out"
             });
         });
 
