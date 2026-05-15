@@ -9,20 +9,29 @@
 }
 
 body {
-    background: radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.1) 0%, #000 60%),
-                radial-gradient(circle at 90% 90%, rgba(37, 99, 235, 0.1) 0%, #000 60%),
-                #050505;
+    background: #050508;
     color: #FFFFFF;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    background-attachment: fixed;
     font-family: var(--main-font);
     font-weight: 500;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+}
+
+/* Stable Fixed Background for Mobile & Desktop */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                #050508;
+    pointer-events: none;
 }
 
 main {
@@ -66,7 +75,7 @@ main {
     transform: none;
 }
 
-/* Animated Background Blobs */
+/* Animated Background Blobs - Disabled on Mobile for Performance */
 .liquid-blob {
     position: fixed;
     width: 70vw;
@@ -74,9 +83,13 @@ main {
     border-radius: 50%;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.25; /* Reduced brightness */
+    opacity: 0.25;
     filter: blur(140px);
     mix-blend-mode: screen;
+}
+
+@media (max-width: 768px) {
+    .liquid-blob { display: none; }
 }
 
 #blob1 { background: radial-gradient(circle, var(--violet-vibrant) 0%, transparent 70%); opacity: 0.35; } 
