@@ -1,84 +1,92 @@
-# <DevD> Project Blueprint & Technical Specification
+# <DevD> Master Blueprint & Technical DNA
 
-Acest document reprezintă specificația completă a proiectului **DevD - Client Page**, servind drept ghid pentru mentenanță sau migrare către un framework modern (React/Next.js).
-
----
-
-## 1. Design System (Aesthetics)
-*   **Core Style:** Ultra-Premium Glassmorphism / Liquid Glass.
-*   **Typography:**
-    *   `font-heading`: Eb Garamond (Serif, Italic, Bold).
-    *   `font-sans`: Inter (Sans-serif, Light to Black).
-*   **Color Palette:**
-    *   Background: `#020203` (Deep Obsidian).
-    *   Glass: `rgba(255, 255, 255, 0.03)` with `backdrop-filter: blur(40px)`.
-    *   Accent: `#ff00ff` (Magenta/Pink Spotlight) & `#7c3aed` (Violet).
-    *   Text: Pure White (`#fff`) with varying opacities (40%, 60% for secondary).
+Acest document reprezintă „ADN-ul” complet al proiectului **DevD**. Conține specificațiile exacte, valorile matematice și textele finale necesare pentru o reconstrucție 1:1.
 
 ---
 
-## 2. Global Layout & Structure
+## 1. Visual DNA (CSS Tokens)
 
-### A. Navigation Bar
-*   **Structure:** Fixed top, centered container (`w-[90%]`), liquid-glass effect.
-*   **Elements:**
-    *   Logo: `<DevD>` text-based.
-    *   Links: Home, Despre, Servicii, Echipa, Contact (uppercase, high tracking).
-    *   CTA: "Consultanță" button with `btn-glass` style.
-*   **Responsive:** Links hidden on mobile, simplified UI with mobile-specific spacing.
+### A. The "Liquid Glass" Core
+Orice element de tip card sau panou trebuie să folosească exact aceste valori pentru a păstra aspectul premium:
+```css
+.liquid-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        inset 0 0 24px rgba(255, 255, 255, 0.05);
+    border-radius: 40px; /* Desktop */
+}
+```
 
-### B. Hero Section
-*   **Visuals:** Large heading with GSAP SplitText animation (character by character reveal).
-*   **Background:** Animated liquid blobs (desktop) / Radial gradients (mobile) for performance.
-*   **Content:** Tagline focusing on "High Performance" and "Custom Code".
-
-### C. Architectural Stack (The "Showcase")
-*   **Design:** 3D tilted glass cards using GSAP and perspective transforms.
-*   **Interactions:** `mousemove` parallax that tilts cards slightly (Desktop only).
-*   **Responsive:** Transforms are disabled on mobile to prevent layout shifting, using a clean vertical stack instead.
-
----
-
-## 3. Pricing Section & Calculator
-
-### A. Package Cards (Essential, Bespoke, Elite)
-*   **Structure:** 3-column grid (desktop), 1-column (mobile).
-*   **Visuals:** Each card is a `liquid-glass` container.
-*   **Special State:** "Bespoke" card has a "RECOMMENDED" badge.
-*   **Buttons:**
-    *   `Explorează Arhitectura`: Opens a fullscreen modal with an iframe.
-    *   `Alege Planul`: Direct link to WhatsApp.
-
-### B. Logic Calculator
-*   **Stateful Elements:** 
-    *   Select box (Package base price).
-    *   Checkboxes (Add-ons: 48h Launch, Design Ultra, etc.).
-*   **Logic:** `total = basePrice + sum(selectedAddOns)`.
-*   **Visuals:** Real-time update of the total price using GSAP number counters.
-*   **New Offers:** 
-    *   -€30 discount notice for 48h material delivery.
-    *   Hosting & Domain information sub-section.
+### B. Global Backgrounds
+*   **Desktop Blobs:** Trei sfere animate (`mix-blend-mode: screen`, `filter: blur(80px)`) în culorile Violet (#7c3aed) și Magenta (#ff00ff).
+*   **Mobile Glow:** `radial-gradient(circle at 50% -20%, rgba(124, 58, 237, 0.3), transparent 70%)`.
+*   **Noise Texture:** Base64 SVG aplicat ca overlay la 5% opacitate pentru a „lega” gradientele.
 
 ---
 
-## 4. Modal System (The "Demos")
-*   **Functionality:** Injects an `<iframe>` dynamically via `js/app.js`.
-*   **UI:** Fixed fullscreen overlay with a floating "Rezervă Acest Plan" button and a close button (×).
+## 2. Copywriting & Content Map
+
+### Hero Section
+*   **Heading:** `Arhitectură Digitală de Înaltă Performanță` (Eb Garamond, Italic).
+*   **Sub-heading:** `Construim site-uri care convertesc, pentru afaceri care au rămas mici pentru WordPress. 100% Cod Custom. Zero mentenanță.`
+
+### Pricing Plans
+*   **Essential:** `€299` | `Impact Imediat. Lansare Rapidă.`
+*   **Bespoke:** `€449` | `Control Total. Design de Elită.`
+*   **Elite:** `€799` | `Performanță Extremă. Scalabilitate.`
+
+### Price Calculator Add-ons
+*   Lansare 48h: `+€30`
+*   Design Ultra: `+€49`
+*   SEO & Indexare: `+€49`
+*   Motion Design: `+€99`
+*   CMS Dashboard: `+€149`
+*   Multi-Language: `+€49`
 
 ---
 
-## 5. Technical Requirements for React Migration
+## 3. Logic & Mathematical Snippets
 
-### Components Needed:
-1.  `<Navbar />`: Should handle active state and scroll-to-id logic.
-2.  `<Hero />`: Use `framer-motion` for the text split animations.
-3.  `<GlassCard />`: Reusable component for pricing and features.
-4.  `<PriceCalculator />`: Use `useState` for the total and add-ons.
-5.  `<DemoModal />`: A Portal-based modal for the iframes.
+### A. Calculator Price Logic
+```javascript
+function updatePrice() {
+    let total = parseInt(packageSelect.value);
+    checkboxes.forEach(cb => {
+        if (cb.checked) total += parseInt(cb.value);
+    });
+    // Animate total-price element using GSAP
+    gsap.to("#total-price", { innerText: total, snap: { innerText: 1 }, duration: 0.5 });
+}
+```
+
+### B. Demo Modal Injection
+```javascript
+window.openDemo = (id) => {
+    content.innerHTML = `
+        <div class="fixed inset-0 bg-black"><iframe src="demos/${id}.html"></iframe></div>
+        <button onclick="closeDemo()">×</button>
+        <div class="fixed bottom-10 w-full flex justify-center">
+            <a href="https://wa.me/..." class="btn-glass">Rezervă Acest Plan</a>
+        </div>
+    `;
+}
+```
 
 ---
 
-## 6. Maintenance Checklist
-- [ ] Check `noise.svg` base64 integrity in CSS.
-- [ ] Ensure `100dvh` units are used for mobile viewport consistency.
-- [ ] Monitor CDN Tailwind performance (migrate to CLI/PostCSS in React).
+## 4. Animation Configs (GSAP)
+
+*   **SplitText Reveal:** `y: 0, opacity: 1, stagger: 0.05, ease: "power4.out"`.
+*   **Scroll Reveal:** `y: 80, opacity: 0, duration: 2, ease: "power4.out"`.
+*   **Tilt Effect (Desktop Only):** Max rotation `5deg` on X/Y axis based on mouse position relative to card center.
+
+---
+
+## 5. Assets & Prompts Reference
+*   **Main Background Texture:** `ultra_premium_glassmorphism_texture_1778799423352.png` (Abstract, translucent glass textures, dark studio lighting).
+*   **Icons:** Lucide-React (Search, Shield, Zap, Layers, Globe).
+*   **Favicon:** `<DevD>` stylized in white on black background.
