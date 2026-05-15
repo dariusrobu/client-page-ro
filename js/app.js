@@ -179,8 +179,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="fixed inset-0 w-full h-full bg-black">
                 <iframe src="demos/${id}.html" class="w-full h-full border-none" id="demo-iframe"></iframe>
             </div>
-            <div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-50">
-                <a href="https://wa.me/40758462498" class="btn-glass px-10 py-5 text-[10px] font-heading font-black uppercase tracking-[0.4em] italic shadow-2xl">Rezervă Acest Plan</a>
+            <!-- Close Button for Mobile -->
+            <button onclick="closeDemo()" class="fixed top-6 right-6 z-[100] w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white text-xl">×</button>
+            
+            <!-- Centered CTA Button -->
+            <div class="fixed bottom-10 left-0 w-full flex justify-center px-6 z-50">
+                <a href="https://wa.me/40758462498" class="btn-glass px-10 py-5 text-[10px] font-heading font-black uppercase tracking-[0.4em] italic shadow-2xl whitespace-nowrap">Rezervă Acest Plan</a>
             </div>
         `;
 
